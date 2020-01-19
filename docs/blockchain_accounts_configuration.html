@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <title>Accounts Blockchain configuration | Embark</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://embark.status.im/docs/blockchain_accounts_configuration.html">
+  <link rel="canonical" href="https://embark.embarklabs.io/docs/blockchain_accounts_configuration.html">
   <!-- Alternative links -->
   
 
   <!-- Icon -->
   <meta name="msapplication-TileColor" content="#080E1A">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32" />
 
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-60x60-precomposed.png">
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76-precomposed.png">
@@ -22,15 +22,17 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-precomposed.png">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/embark.css">
+  
+<link rel="stylesheet" href="/css/embark.css">
+
   <!-- endbuild -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="Embark">
-  <meta property="og:image" content="/img/share.png?v=0.0.5">
+  <meta property="og:image" content="/img/share.png?v=0.0.5" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.4/styles/dracula.min.css">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -176,7 +178,7 @@ svg4everybody();
               <a href="/community" class="c-navigation__anchor " title="Community">Community</a>
             </li>
             <li class="c-navigation__item">
-              <a href="/news" class="c-navigation__anchor " title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="c-navigation__anchor " title="Blog">Blog</a>
             </li>
           </ul>
         </div>
@@ -188,7 +190,7 @@ svg4everybody();
         <div class="o-flex__item">
           <ul class="o-flex o-flex-center">
             <li class="o-flex__item">
-              <a href="https://github.com/embark-framework/embark" title="Github" target="_blank" class="u-link-ghost">
+              <a href="https://github.com/embarklabs/embark" title="Github" target="_blank" class="u-link-ghost">
                 <svg class="c-icon"><use xlink:href="/../assets/icons/symbols.svg#icon-github"></use></svg>
               </a>
             </li>
@@ -757,8 +759,8 @@ svg4everybody();
         </div>
       </div>
       <div class="o-guided-content__content">
-        <p class="c-meta">Last updated: January 7th 2020
-          (<a href="https://github.com/embark-framework/embark/edit/master/site/source/docs/blockchain_accounts_configuration.md" target="_blank">
+        <p class="c-meta">Last updated: January 19th 2020
+          (<a href="https://github.com/embarklabs/embark/edit/master/site/source/docs/blockchain_accounts_configuration.md" target="_blank">
             Improve this guide <svg class="c-icon c-icon--xs"><use xlink:href="/../../assets/icons/symbols.svg#icon-pen-write-paper"></use></svg>
           </a>)
         </p>
@@ -766,15 +768,15 @@ svg4everybody();
           <h1>Accounts Blockchain configuration</h1>
           <p>In our <a href="/docs/blockchain_configuration.html">guide on configuring a blockchain client</a>, we’ve configured accounts in several places.</p>
 <p>This parameter let’s us customize what the <code>accounts</code> will be for our deployment, as well as the accounts that will be created and unlocked by our blockchain client.</p>
-<h2 id="Accounts-parameters"><a href="#Accounts-parameters" class="headerlink" title="Accounts parameters"></a>Accounts parameters</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">accounts: [</span><br><span class="line">  &#123;</span><br><span class="line">    nodeAccounts: true,</span><br><span class="line">    numAddresses: &quot;1&quot;,</span><br><span class="line">    password: &quot;config/development/devpassword&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    privateKey: process.env.MyPrivateKey</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    privateKeyFile: &quot;path/to/file&quot;,</span><br><span class="line">    password: process.env.MyKeyStorePassword</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    mnemonic: process.env.My12WordsMnemonic,</span><br><span class="line">    addressIndex: &quot;0&quot;,</span><br><span class="line">    numAddresses: &quot;1&quot;,</span><br><span class="line">    hdpath: &quot;m/44&apos;/60&apos;/0&apos;/0/&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="Accounts-parameters"><a href="#Accounts-parameters" class="headerlink" title="Accounts parameters"></a>Accounts parameters</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">accounts: [</span><br><span class="line">  &#123;</span><br><span class="line">    nodeAccounts: true,</span><br><span class="line">    numAddresses: &quot;1&quot;,</span><br><span class="line">    password: &quot;config&#x2F;development&#x2F;devpassword&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    privateKey: process.env.MyPrivateKey</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    privateKeyFile: &quot;path&#x2F;to&#x2F;file&quot;,</span><br><span class="line">    password: process.env.MyKeyStorePassword</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    mnemonic: process.env.My12WordsMnemonic,</span><br><span class="line">    addressIndex: &quot;0&quot;,</span><br><span class="line">    numAddresses: &quot;1&quot;,</span><br><span class="line">    hdpath: &quot;m&#x2F;44&#39;&#x2F;60&#39;&#x2F;0&#39;&#x2F;0&#x2F;&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
 <p>The <code>accounts</code> configuration is an array of objects, where each object represents one or more account.</p>
 <p>Embark offers you multiple ways to include your account. You can use the one you prefer and ignore the others or mix and match.</p>
 <div class="c-notification c-notification--danger">
   <p><strong>Using production keys</strong></p>
-  <p></p><p>Be careful when using production keys and mnemonics (ie the account where you have real money).</p>
+  <p><p>Be careful when using production keys and mnemonics (ie the account where you have real money).</p>
 <p>We recommend using <a href="https://www.schrodinger.com/kb/1842" target="_blank" rel="noopener">environment variables</a> for plain text values like <code>privateKey</code> and <code>mnemonic</code> and to put the files for <code>privateKeyFile</code> and key stores either out of your working directory or ignored by versioning (eg: add the file in gitignore)</p>
-<p></p>
+</p>
 </div> 
 
 
@@ -800,14 +802,14 @@ svg4everybody();
 </ul>
 <div class="c-notification c-notification--info">
   <p><strong>Accounts order</strong></p>
-  <p></p><p>The order in the accounts array is important. This means that using <code>nodeAccounts</code> first, as above, will set the node’s account as the <code>defaultAccount</code> for deployment.</p>
-<p></p>
+  <p><p>The order in the accounts array is important. This means that using <code>nodeAccounts</code> first, as above, will set the node’s account as the <code>defaultAccount</code> for deployment.</p>
+</p>
 </div> 
 
 
 
 <h3 id="Configuring-account-balance-for-development"><a href="#Configuring-account-balance-for-development" class="headerlink" title="Configuring account balance for development"></a>Configuring account balance for development</h3><p>When in development, we can specify the balance of each account using the <code>balance</code> option:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  development: &#123;</span><br><span class="line">      deployment: &#123;</span><br><span class="line">        accounts: [</span><br><span class="line">          &#123;</span><br><span class="line">            mnemonic: &quot;12 word mnemonic&quot;,</span><br><span class="line">            balance: &quot;5 ether&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  development: &#123;</span><br><span class="line">      deployment: &#123;</span><br><span class="line">        accounts: [</span><br><span class="line">          &#123;</span><br><span class="line">            mnemonic: &quot;12 word mnemonic&quot;,</span><br><span class="line">            balance: &quot;5 ether&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Balances can be specified using <a href="/docs/contracts_configuration.html#Human-readable-Ether-units">human readable units</a> such as “5 ether” or “200 finney”. If no unit is specified the value will be in Wei.</p>
 
@@ -858,7 +860,7 @@ svg4everybody();
               <a href="/docs" class="u-link-ghost" title="Documentation">Documentation</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="/news" class="u-link-ghost" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="u-link-ghost" title="Blog">Blog</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/faq.html" class="u-link-ghost" title="FAQ">FAQ</a>
@@ -872,16 +874,16 @@ svg4everybody();
           <p class="c-category-title u-text-light">Help</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://stackoverflow.com/questions/tagged/embark" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
+              <a href="https://stackoverflow.com/questions/tagged/embark" target="_blank" rel="noopener" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://gitter.im/embark-framework/Lobby" class="u-link-ghost" title="Gitter">Gitter</a>
+              <a href="https://gitter.im/embark-framework/Lobby" target="_blank" rel="noopener" class="u-link-ghost" title="Gitter">Gitter</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/issues" class="u-link-ghost" title="Report issues">Report issues</a>
+              <a href="https://github.com/embarklabs/embark/issues" target="_blank" rel="noopener" class="u-link-ghost" title="Report issues">Report issues</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/blob/master/CODE_OF_CONDUCT.md" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
+              <a href="https://github.com/embarklabs/embark/blob/master/CODE_OF_CONDUCT.md" target="_blank" rel="noopener" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
             </li>
           </ul>
         </div>
@@ -889,10 +891,10 @@ svg4everybody();
           <p class="c-category-title u-text-light">Community</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework" class="u-link-ghost" title="Github">Github</a>
+              <a href="https://github.com/embarklabs" target="_blank" rel="noopener" class="u-link-ghost" title="Github">Github</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://twitter.com/EmbarkProject" class="u-link-ghost" title="Twitter">Twitter</a>
+              <a href="https://twitter.com/EmbarkProject" target="_blank" rel="noopener" class="u-link-ghost" title="Twitter">Twitter</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/contributing.html" class="u-link-ghost" title="Contribute">Contribute</a>
@@ -909,8 +911,8 @@ svg4everybody();
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://status.im/" target="_blank">Status</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://keycard.tech/" target="_blank">Keycard</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://dap.ps/" target="_blank">dap.ps</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.status.im/" target="_blank">Embark</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.status.im/" target="_blank">Subspace</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.embarklabs.io/" target="_blank">Embark</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.embarklabs.io/" target="_blank">Subspace</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://vac.dev/" target="_blank">Vac</a></li>
           </ul>
         </div>
@@ -932,24 +934,10 @@ svg4everybody();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <script>
       const EMBARK_DOC_VERSIONS = {
-        'latest': 'https://embark.status.im/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
+        'latest': 'https://embark.embarklabs.io/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
       };
     </script>
 
-    
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-    (function(f, a, t, h, o, m){
-        a[h]=a[h]||function(){(a[h].q=a[h].q||[]).push(arguments)};
-        o=f.createElement('script'),
-        m=f.getElementsByTagName('script')[0];
-        o.async=1; o.src=t; o.id='fathom-script';
-        m.parentNode.insertBefore(o,m)
-    })(document, window, '//fathom.status.im/tracker.js', 'fathom');
-    fathom('set', 'siteId', 'JOQKN');
-    fathom('trackPageview');
-    </script>
-    <!-- / Fathom -->
     
 
     <script src="/js/index.js"></script>

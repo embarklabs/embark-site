@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <title>How to upgrade to Embark 4 | Embark</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://embark.status.im/news/2019/03/18/upgrading-to-embark-4/index.html">
+  <link rel="canonical" href="https://embark.embarklabs.io/news/2019/03/18/upgrading-to-embark-4/index.html">
   <!-- Alternative links -->
   
 
   <!-- Icon -->
   <meta name="msapplication-TileColor" content="#080E1A">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32" />
 
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-60x60-precomposed.png">
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76-precomposed.png">
@@ -22,15 +22,17 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-precomposed.png">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/embark.css">
+  
+<link rel="stylesheet" href="/css/embark.css">
+
   <!-- endbuild -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="Embark">
-  <meta property="og:image" content="/img/share.png?v=0.0.5">
+  <meta property="og:image" content="/img/share.png?v=0.0.5" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.4/styles/dracula.min.css">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -175,7 +177,7 @@ svg4everybody();
               <a href="/community" class="c-navigation__anchor " title="Community">Community</a>
             </li>
             <li class="c-navigation__item">
-              <a href="/news" class="c-navigation__anchor is-active" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="c-navigation__anchor is-active" title="Blog">Blog</a>
             </li>
           </ul>
         </div>
@@ -187,7 +189,7 @@ svg4everybody();
         <div class="o-flex__item">
           <ul class="o-flex o-flex-center">
             <li class="o-flex__item">
-              <a href="https://github.com/embark-framework/embark" title="Github" target="_blank" class="u-link-ghost">
+              <a href="https://github.com/embarklabs/embark" title="Github" target="_blank" class="u-link-ghost">
                 <svg class="c-icon"><use xlink:href="/../assets/icons/symbols.svg#icon-github"></use></svg>
               </a>
             </li>
@@ -219,7 +221,7 @@ svg4everybody();
             <img src="https://pbs.twimg.com/profile_images/993873866878570496/-aE4byjj_400x400.jpg" class="c-avatar-small">
           </span>
           <p class="o-flex__item">
-            Written by <a href="https://twitter.com/ShyolGhul" title="Jonathan Rainville on Twitter">Jonathan Rainville</a> on the <time class="u-text-ghost">18th March 2019</time>
+            Written by <a href="https://twitter.com/ShyolGhul" target="_blank" rel="noopener" title="Jonathan Rainville on Twitter">Jonathan Rainville</a> on the <time class="u-text-ghost">18th March 2019</time>
           </p>
         </div>
       </div>
@@ -244,8 +246,8 @@ svg4everybody();
 <p>To migrate an existing Embark 3.x Dapp over to use Embark 4 with a third party pipeline, there are few small changes to your Dapp that are needed.</p>
 <div class="c-notification c-notification--info">
   <p><strong>NOTE</strong></p>
-  <p></p><p>If you are not interested in using a third party pipeline, you can skip to the next section to <a href="#New-Web3-plugin">see the rest of the breaking changes needed to migrate a Dapp to Embark 4</a>.</p>
-<p></p>
+  <p><p>If you are not interested in using a third party pipeline, you can skip to the next section to <a href="#New-Web3-plugin">see the rest of the breaking changes needed to migrate a Dapp to Embark 4</a>.</p>
+</p>
 </div> 
 
 
@@ -259,41 +261,37 @@ svg4everybody();
 <h4 id="“Magic”-imports"><a href="#“Magic”-imports" class="headerlink" title="“Magic” imports"></a>“Magic” imports</h4><p>Afterwards, we need to convert all “magic” imports in our Dapp’s code to relative imports.</p>
 <p>The first one is the EmbarkJS import. The “magic” import is <code>&quot;Embark/EmbarkJS&quot;</code>. Anywhere we have <code>&quot;Embark/EmbarkJS&quot;</code> in our Dapp’s code, we need to convert that to the relative path. Because we are trying to get the <code>EmbarkJS</code> library, and the <code>embarkjs.js</code> script is located in the root of  <code>embarkArtifacts/</code>, we need to replace</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> EmbarkJS <span class="keyword">from</span> <span class="string">"Embark/EmbarkJS"</span></span><br></pre></td></tr></table></figure>
-
 <p>with</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> EmbarkJS <span class="keyword">from</span> <span class="string">"./embarkArtifacts/embarkjs"</span></span><br></pre></td></tr></table></figure>
-
 <div class="c-notification c-notification--info">
   <p><strong>NOTE</strong></p>
-  <p></p><p>NOTE: The relative path is dependent upon the generationDir setting specified in embark.json <a href="#Artifact-generation-directory">see the “Artifact generation directory” section above</a>.</p>
-<p></p>
+  <p><p>NOTE: The relative path is dependent upon the generationDir setting specified in embark.json <a href="#Artifact-generation-directory">see the “Artifact generation directory” section above</a>.</p>
+</p>
 </div> 
 
 
 
 <p>Secondly, we need to update the “magic” Smart Contract imports. These will need to change from</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> ContractName <span class="keyword">from</span> <span class="string">"Embark/contract/ContractName"</span>;</span><br></pre></td></tr></table></figure>
-
 <p>to</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> ContractName <span class="keyword">from</span> <span class="string">"./embarkArtifacts/contracts/ContractName"</span>;</span><br></pre></td></tr></table></figure>
 
 <p>Thirdly, there used to be <code>import web3 from &quot;Embark/web3&quot;</code>, but it has been removed in Embark 4 in favor of using a global Web3 object. Don’t worry, Embark is not removing web3 support, far from it. We actually just got rid of an import that did not provide a lot of benefit. In Embark 4, the global <code>web3</code> object is now available everywhere in the Dapp.</p>
 <p>Now, all the Embark files and configs from your Dapp can be moved in to a project created by the frontend build tool of your choice.</p>
 <h3 id="New-project-with-another-pipeline"><a href="#New-project-with-another-pipeline" class="headerlink" title="New project with another pipeline"></a>New project with another pipeline</h3><p>Starting a new Dapp from scratch is easy, we have two options.</p>
-<h4 id="Embark’s-create-react-dapp-template"><a href="#Embark’s-create-react-dapp-template" class="headerlink" title="Embark’s create-react-dapp template"></a>Embark’s create-react-dapp template</h4><p>The easiest option is to use our <a href="https://github.com/embark-framework/embark-create-react-dapp-template" target="_blank" rel="noopener">new Embark CRA template</a>. It sets up a simple Embark project with all of the familiar files present in an Embark 3.x Dapp, with one minor difference: the config files are located in an <code>embarkConfig/</code> folder in the root of the Dapp to make sure they don’t clash with CRA’s config folder/files.</p>
+<h4 id="Embark’s-create-react-dapp-template"><a href="#Embark’s-create-react-dapp-template" class="headerlink" title="Embark’s create-react-dapp template"></a>Embark’s create-react-dapp template</h4><p>The easiest option is to use our <a href="https://github.com/embarklabs/embark-create-react-dapp-template" target="_blank" rel="noopener">new Embark CRA template</a>. It sets up a simple Embark project with all of the familiar files present in an Embark 3.x Dapp, with one minor difference: the config files are located in an <code>embarkConfig/</code> folder in the root of the Dapp to make sure they don’t clash with CRA’s config folder/files.</p>
 <p>To get started with Embark’s CRA template,</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">embark new --template embark-react-dapp my-dapp</span><br><span class="line">cd my-dapp</span><br><span class="line">embark run</span><br></pre></td></tr></table></figure>
-
 <div class="c-notification c-notification--danger">
   <p><strong>DEPRECATION NOTICE</strong></p>
-  <p></p><p>The <code>--template</code> option has been deprecated in v5 and support will be removed in future versions.</p>
-<p></p>
+  <p><p>The <code>--template</code> option has been deprecated in v5 and support will be removed in future versions.</p>
+</p>
 </div> 
 
 
 
 <p>Then, in another terminal,</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd my-dapp</span><br><span class="line">yarn start // or alternatively, npm run start</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd my-dapp</span><br><span class="line">yarn start &#x2F;&#x2F; or alternatively, npm run start</span><br></pre></td></tr></table></figure>
 
 <p>That’s it!</p>
 <h4 id="For-other-build-tools"><a href="#For-other-build-tools" class="headerlink" title="For other build tools"></a>For other build tools</h4><p>If we want to use another build tool than CRA, here are the steps:</p>
@@ -306,17 +304,17 @@ svg4everybody();
 <h2 id="New-Web3-plugin"><a href="#New-Web3-plugin" class="headerlink" title="New Web3 plugin"></a>New Web3 plugin</h2><p><em>(2019/06/27)</em> <strong>NOTE</strong>: <em>the following instructions are</em> <strong><em>not</em></strong> <em>applicable to Embark <code>4.1.x</code> and newer, but should still be followed for <code>4.0.x</code> or <code>&lt;=4.1.0-beta.3</code>.</em></p>
 <p>Starting with Embark 4 beta.1, Embark no longer supplies the Dapp with <code>Web3.js</code> by default. Don’t run. We did that so that we can now have the possibility of supporting more than just <code>Web3.js</code>, such as EthersJS, and more. You can even roll your own.</p>
 <p>To continue using <code>Web3.js</code> inside the Embark 4 Dapp, execute the following command in the Embark console: <code>plugin install embarkjs-connector-web3</code>.</p>
-<p>This simply <a href="https://embark.status.im/docs/installing_plugins.html">installs <code>embarkjs-connector-web3</code> as a plugin</a>. Alternatively, this plugin can be installed manually by executing:</p>
+<p>This simply <a href="https://embark.status.im/docs/installing_plugins.html" target="_blank" rel="noopener">installs <code>embarkjs-connector-web3</code> as a plugin</a>. Alternatively, this plugin can be installed manually by executing:</p>
 <ol>
 <li><code>yarn add embarkjs-connector-web3</code> or <code>npm install --save embarkjs-connector-web3</code></li>
 <li>Adding <code>&quot;embarkjs-connector-web3&quot;: {}</code> to the <code>plugins</code> section of <code>embark.json</code></li>
 </ol>
 <p>It’s as simple as that. This plugin will add the necessary commands and code for the Dapp to connect to the blockchain and register the necessary providers. The only prerequisite is for the Dapp to import <code>EmbarkJS</code> at least once. If using a third party pipeline, the <code>EmbarkJS</code> file can be imported using <code>import EmbarkJS from &quot;./embarkArtifacts/embarkjs.js&quot;</code> (or as specified by the <code>generationDir</code> in <code>embark.json</code>). If using Embark’s built-in pipeline, <code>EmbarkJS</code> can be imported using <code>import EmbarkJS from &quot;Embark/EmbarkJS&quot;;</code>.</p>
-<h2 id="New-Blockchain-account-configs"><a href="#New-Blockchain-account-configs" class="headerlink" title="New Blockchain account configs"></a>New Blockchain account configs</h2><p>Embark 4 adds some new blockchain account configurations. To try to keep things as simple as possible, these additions are really similar to the ones in the contract configuration. For more information, please read the <a href="https://embark.status.im/docs/blockchain_accounts_configuration.html">Accounts Blockchain configuration guide</a> in our docs.</p>
+<h2 id="New-Blockchain-account-configs"><a href="#New-Blockchain-account-configs" class="headerlink" title="New Blockchain account configs"></a>New Blockchain account configs</h2><p>Embark 4 adds some new blockchain account configurations. To try to keep things as simple as possible, these additions are really similar to the ones in the contract configuration. For more information, please read the <a href="https://embark.status.im/docs/blockchain_accounts_configuration.html" target="_blank" rel="noopener">Accounts Blockchain configuration guide</a> in our docs.</p>
 <p>However, we did introduce some small breaking changes. We removed:</p>
 <ul>
-<li><code>account</code>: This is completely replaced by the new <code>accounts</code> property (notice the <code>s</code> at the end of <code>accounts</code>). It gives the developer more flexibility. To have exactly the same behavior as before, just use the <code>nodeAccounts</code> account type as <a href="https://embark.status.im/docs/blockchain_accounts_configuration.md#parameter-descriptions">described in the docs</a></li>
-<li><code>simulatorMnemonic</code>: Removed in favor of Ganache’s default mnemonic. If this functionality is still needed, please specify the desired mnemonic in the <a href="https://embark.status.im/docs/blockchain_accounts_configuration.md#parameter-descriptions">blockchain config’s <code>mnemonic</code> account type</a>.</li>
+<li><code>account</code>: This is completely replaced by the new <code>accounts</code> property (notice the <code>s</code> at the end of <code>accounts</code>). It gives the developer more flexibility. To have exactly the same behavior as before, just use the <code>nodeAccounts</code> account type as <a href="https://embark.status.im/docs/blockchain_accounts_configuration.md#parameter-descriptions" target="_blank" rel="noopener">described in the docs</a></li>
+<li><code>simulatorMnemonic</code>: Removed in favor of Ganache’s default mnemonic. If this functionality is still needed, please specify the desired mnemonic in the <a href="https://embark.status.im/docs/blockchain_accounts_configuration.md#parameter-descriptions" target="_blank" rel="noopener">blockchain config’s <code>mnemonic</code> account type</a>.</li>
 </ul>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>This is a small taste of the features added to Embark 4, namely the ability to use a frontend build tool of choice. However, Embark 4 is jam-packed with additional new features, which we’ll detail during the Embark 4 release.</p>
 <p>In the meantime, all the Embark 4 goodness doesn’t come at too high a price in terms of breaking changes.</p>
@@ -365,7 +363,7 @@ svg4everybody();
               <a href="/docs" class="u-link-ghost" title="Documentation">Documentation</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="/news" class="u-link-ghost" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="u-link-ghost" title="Blog">Blog</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/faq.html" class="u-link-ghost" title="FAQ">FAQ</a>
@@ -379,16 +377,16 @@ svg4everybody();
           <p class="c-category-title u-text-light">Help</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://stackoverflow.com/questions/tagged/embark" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
+              <a href="https://stackoverflow.com/questions/tagged/embark" target="_blank" rel="noopener" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://gitter.im/embark-framework/Lobby" class="u-link-ghost" title="Gitter">Gitter</a>
+              <a href="https://gitter.im/embark-framework/Lobby" target="_blank" rel="noopener" class="u-link-ghost" title="Gitter">Gitter</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/issues" class="u-link-ghost" title="Report issues">Report issues</a>
+              <a href="https://github.com/embarklabs/embark/issues" target="_blank" rel="noopener" class="u-link-ghost" title="Report issues">Report issues</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/blob/master/CODE_OF_CONDUCT.md" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
+              <a href="https://github.com/embarklabs/embark/blob/master/CODE_OF_CONDUCT.md" target="_blank" rel="noopener" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
             </li>
           </ul>
         </div>
@@ -396,10 +394,10 @@ svg4everybody();
           <p class="c-category-title u-text-light">Community</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework" class="u-link-ghost" title="Github">Github</a>
+              <a href="https://github.com/embarklabs" target="_blank" rel="noopener" class="u-link-ghost" title="Github">Github</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://twitter.com/EmbarkProject" class="u-link-ghost" title="Twitter">Twitter</a>
+              <a href="https://twitter.com/EmbarkProject" target="_blank" rel="noopener" class="u-link-ghost" title="Twitter">Twitter</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/contributing.html" class="u-link-ghost" title="Contribute">Contribute</a>
@@ -416,8 +414,8 @@ svg4everybody();
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://status.im/" target="_blank">Status</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://keycard.tech/" target="_blank">Keycard</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://dap.ps/" target="_blank">dap.ps</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.status.im/" target="_blank">Embark</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.status.im/" target="_blank">Subspace</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.embarklabs.io/" target="_blank">Embark</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.embarklabs.io/" target="_blank">Subspace</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://vac.dev/" target="_blank">Vac</a></li>
           </ul>
         </div>
@@ -439,24 +437,10 @@ svg4everybody();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <script>
       const EMBARK_DOC_VERSIONS = {
-        'latest': 'https://embark.status.im/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
+        'latest': 'https://embark.embarklabs.io/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
       };
     </script>
 
-    
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-    (function(f, a, t, h, o, m){
-        a[h]=a[h]||function(){(a[h].q=a[h].q||[]).push(arguments)};
-        o=f.createElement('script'),
-        m=f.getElementsByTagName('script')[0];
-        o.async=1; o.src=t; o.id='fathom-script';
-        m.parentNode.insertBefore(o,m)
-    })(document, window, '//fathom.status.im/tracker.js', 'fathom');
-    fathom('set', 'siteId', 'JOQKN');
-    fathom('trackPageview');
-    </script>
-    <!-- / Fathom -->
     
 
     <script src="/js/index.js"></script>

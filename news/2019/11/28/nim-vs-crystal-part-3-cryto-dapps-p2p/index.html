@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <title>Nim vs Crystal - Part 3 - Crypto, DApps & P2P | Embark</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://embark.status.im/news/2019/11/28/nim-vs-crystal-part-3-cryto-dapps-p2p/index.html">
+  <link rel="canonical" href="https://embark.embarklabs.io/news/2019/11/28/nim-vs-crystal-part-3-cryto-dapps-p2p/index.html">
   <!-- Alternative links -->
   
 
   <!-- Icon -->
   <meta name="msapplication-TileColor" content="#080E1A">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32" />
 
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-60x60-precomposed.png">
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76-precomposed.png">
@@ -22,15 +22,17 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-precomposed.png">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/embark.css">
+  
+<link rel="stylesheet" href="/css/embark.css">
+
   <!-- endbuild -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="Embark">
-  <meta property="og:image" content="/img/share.png?v=0.0.5">
+  <meta property="og:image" content="/img/share.png?v=0.0.5" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.4/styles/dracula.min.css">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -175,7 +177,7 @@ svg4everybody();
               <a href="/community" class="c-navigation__anchor " title="Community">Community</a>
             </li>
             <li class="c-navigation__item">
-              <a href="/news" class="c-navigation__anchor is-active" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="c-navigation__anchor is-active" title="Blog">Blog</a>
             </li>
           </ul>
         </div>
@@ -187,7 +189,7 @@ svg4everybody();
         <div class="o-flex__item">
           <ul class="o-flex o-flex-center">
             <li class="o-flex__item">
-              <a href="https://github.com/embark-framework/embark" title="Github" target="_blank" class="u-link-ghost">
+              <a href="https://github.com/embarklabs/embark" title="Github" target="_blank" class="u-link-ghost">
                 <svg class="c-icon"><use xlink:href="/../assets/icons/symbols.svg#icon-github"></use></svg>
               </a>
             </li>
@@ -219,7 +221,7 @@ svg4everybody();
             <img src="https://avatars1.githubusercontent.com/u/29288325?s=400&v=4" class="c-avatar-small">
           </span>
           <p class="o-flex__item">
-            Written by <a href="https://twitter.com/rbin" title="Robin Percy on Twitter">Robin Percy</a> on the <time class="u-text-ghost">28th November 2019</time>
+            Written by <a href="https://twitter.com/rbin" target="_blank" rel="noopener" title="Robin Percy on Twitter">Robin Percy</a> on the <time class="u-text-ghost">28th November 2019</time>
           </p>
         </div>
       </div>
@@ -249,8 +251,10 @@ svg4everybody();
 <h3 id="Calculating-our-Block-Hashes"><a href="#Calculating-our-Block-Hashes" class="headerlink" title="Calculating our Block Hashes"></a>Calculating our Block Hashes</h3><p>When building our Blockchain; we need to consider how we’re going to identify and chain our transaction blocks together (blockchain).  Without going into details in <em>this</em> article on how blockchains function, we’ll stick with the existing, and proven, SHA256 algorithm.</p>
 <h3 id="In-Crystal"><a href="#In-Crystal" class="headerlink" title="In Crystal:"></a>In Crystal:</h3><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">"json"</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">"openssl"</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">OurCryptoApp::Model</span></span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">Transaction</span></span></span><br><span class="line">    <span class="keyword">include</span> <span class="symbol">JSON:</span>:Serializable</span><br><span class="line"></span><br><span class="line">    <span class="keyword">alias</span> TxnHash = String</span><br><span class="line"></span><br><span class="line">    property from : String</span><br><span class="line">    property to : String</span><br><span class="line">    property amount : Float32</span><br><span class="line">    getter hash : TxnHash</span><br><span class="line">    getter timestamp : Int64</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize</span></span>(@from, @to, @amount)</span><br><span class="line">      @timestamp = Time.utc_now.to_unix</span><br><span class="line">      @hash = calc_hash</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">def</span> <span class="title">calc_hash</span></span> : TxnHash</span><br><span class="line">      sha = <span class="symbol">OpenSSL:</span>:Digest.new(<span class="string">"SHA256"</span>)</span><br><span class="line">      sha.update(<span class="string">"<span class="subst">#&#123;@from&#125;</span><span class="subst">#&#123;@to&#125;</span><span class="subst">#&#123;@amount&#125;</span><span class="subst">#&#123;@timestamp&#125;</span>"</span>)</span><br><span class="line">      sha.hexdigest</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
+
 <h3 id="In-Nim"><a href="#In-Nim" class="headerlink" title="In Nim:"></a>In Nim:</h3><p>If we want to generate a similar hash in Nim, we could run the following:</p>
 <figure class="highlight nim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> strutils</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="type">SHA256Len</span> = <span class="number">32</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">proc</span> <span class="type">SHA256</span>(d: <span class="built_in">cstring</span>, n: <span class="built_in">culong</span>, md: <span class="built_in">cstring</span> = <span class="keyword">nil</span>): <span class="built_in">cstring</span> <span class="meta">&#123;.cdecl, dynlib: "libssl.so", importc.&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">proc</span> <span class="type">SHA256</span>(s: <span class="built_in">string</span>): <span class="built_in">string</span> =</span><br><span class="line">  <span class="literal">result</span> = <span class="string">""</span></span><br><span class="line">  <span class="keyword">let</span> s = <span class="type">SHA256</span>(s.<span class="built_in">cstring</span>, s.len.<span class="built_in">culong</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span> .. &lt; <span class="type">SHA256Len</span>:</span><br><span class="line">    <span class="literal">result</span>.add s[i].<span class="type">BiggestInt</span>.toHex(<span class="number">2</span>).toLower</span><br><span class="line"></span><br><span class="line">echo <span class="type">SHA256</span>(<span class="string">"Hash this block, yo"</span>)</span><br></pre></td></tr></table></figure>
+
 
 <h2 id="Releasing-our-Crypto-App"><a href="#Releasing-our-Crypto-App" class="headerlink" title="Releasing our Crypto App"></a>Releasing our Crypto App</h2><p>Another serious factor we have to consider, is the ability to distribute our crypto app, once built, with great ease.  Remembering that both Crystal and Nim are <em>compiled</em> languages, we’re already off to a promising start.  (A single executable binary is always going to be easier to distribute than something requiring its own specialist environment!)</p>
 <p>It pays rather large dividends being able to write our Crypto app just once, and having the ability to maintain one singular code repo for that app. To this end – I think it is definitely worth considering a multi-platform app framework.  I already know that in my next article series, I will be exploring building a Crypto app using <a href="https://facebook.github.io/react-native/" target="_blank" rel="noopener">React Native</a>.</p>
@@ -284,6 +288,7 @@ svg4everybody();
 
 <p>And we would get a response similar to the following, ready to be signed and sent to the Ethereum network:</p>
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"tx"</span>: <span class="string">"02000000011cd5d7621e2a7c9403e54e089cb0b5430b83ed13f1b897d3e319b100ba1b059b01000000db00483045022100d7534c80bc0a42addc3d955f74e31610aa78bf15d79ec4df4c36dc98e802f5200220369cab1bccb2dbca0921444ce3fafb15129fa0494d041998be104df39b8895ec01483045022100fe48c4c1d46e163acaff6b0d2e702812d20"</span>,</span><br><span class="line">  <span class="attr">"hash_to_sign"</span>: <span class="string">"955f74e31610aa78bf15d79ec4df4c36dc98e802f52002"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
 <h2 id="In-Nim-1"><a href="#In-Nim-1" class="headerlink" title="In Nim:"></a>In Nim:</h2><p>From a deeper, more low-level perspective; instead of using an HTTP library as in the Crystal example above, we can use Status’ very own Nim-Ethereum library to build our Ethereum transaction.  Assuming we have imported <code>nim-eth</code> into our Nimble project, our Ethereum transaction can be built atop of the following protocol:</p>
 <figure class="highlight nim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span></span><br><span class="line">  nim-eth/[common, rlp, keys], nimcrypto</span><br><span class="line"></span><br><span class="line"><span class="keyword">proc</span> initTransaction*(nonce: <span class="type">AccountNonce</span>, gasPrice, gasLimit: <span class="type">GasInt</span>, to: <span class="type">EthAddress</span>,</span><br><span class="line">  value: <span class="type">UInt256</span>, payload: <span class="type">Blob</span>, V: byte, R, S: <span class="type">UInt256</span>, isContractCreation = <span class="literal">false</span>): <span class="type">Transaction</span> =</span><br><span class="line">  <span class="literal">result</span>.accountNonce = nonce</span><br><span class="line">  <span class="literal">result</span>.gasPrice = gasPrice</span><br><span class="line">  <span class="literal">result</span>.gasLimit = gasLimit</span><br><span class="line">  <span class="literal">result</span>.to = to</span><br><span class="line">  <span class="literal">result</span>.value = value</span><br><span class="line">  <span class="literal">result</span>.payload = payload</span><br><span class="line">  <span class="literal">result</span>.V = V</span><br><span class="line">  <span class="literal">result</span>.R = R</span><br><span class="line">  <span class="literal">result</span>.S = S</span><br><span class="line">  <span class="literal">result</span>.isContractCreation = isContractCreation</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span></span><br><span class="line">  <span class="type">TransHashObj</span> = <span class="keyword">object</span></span><br><span class="line">    accountNonce:  <span class="type">AccountNonce</span></span><br><span class="line">    gasPrice:      <span class="type">GasInt</span></span><br><span class="line">    gasLimit:      <span class="type">GasInt</span></span><br><span class="line">    to <span class="meta">&#123;.rlpCustomSerialization.&#125;</span>: <span class="type">EthAddress</span></span><br><span class="line">    value:         <span class="type">UInt256</span></span><br><span class="line">    payload:       <span class="type">Blob</span></span><br><span class="line">    mIsContractCreation <span class="meta">&#123;.rlpIgnore.&#125;</span>: <span class="built_in">bool</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">proc</span> read(rlp: <span class="keyword">var</span> <span class="type">Rlp</span>, t: <span class="keyword">var</span> <span class="type">TransHashObj</span>, _: <span class="keyword">type</span> <span class="type">EthAddress</span>): <span class="type">EthAddress</span> <span class="meta">&#123;.inline.&#125;</span> =</span><br><span class="line">  <span class="keyword">if</span> rlp.blobLen != <span class="number">0</span>:</span><br><span class="line">    <span class="literal">result</span> = rlp.read(<span class="type">EthAddress</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    t.mIsContractCreation = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">proc</span> append(rlpWriter: <span class="keyword">var</span> <span class="type">RlpWriter</span>, t: <span class="type">TransHashObj</span>, a: <span class="type">EthAddress</span>) <span class="meta">&#123;.inline.&#125;</span> =</span><br><span class="line">  <span class="keyword">if</span> t.mIsContractCreation:</span><br><span class="line">    rlpWriter.append(<span class="string">""</span>)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    rlpWriter.append(a)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span></span><br><span class="line">  <span class="type">EIP155_CHAIN_ID_OFFSET</span>* = <span class="number">35</span></span><br><span class="line"></span><br><span class="line">func rlpEncode*(transaction: <span class="type">Transaction</span>): <span class="built_in">auto</span> =</span><br><span class="line">  <span class="comment"># Encode transaction without signature</span></span><br><span class="line">  <span class="keyword">return</span> rlp.encode(<span class="type">TransHashObj</span>(</span><br><span class="line">    accountNonce: transaction.accountNonce,</span><br><span class="line">    gasPrice: transaction.gasPrice,</span><br><span class="line">    gasLimit: transaction.gasLimit,</span><br><span class="line">    to: transaction.to,</span><br><span class="line">    value: transaction.value,</span><br><span class="line">    payload: transaction.payload,</span><br><span class="line">    mIsContractCreation: transaction.isContractCreation</span><br><span class="line">    ))</span><br><span class="line"></span><br><span class="line">func rlpEncodeEIP155*(tx: <span class="type">Transaction</span>): <span class="built_in">auto</span> =</span><br><span class="line">  <span class="keyword">let</span> V = (tx.V.<span class="built_in">int</span> - <span class="type">EIP155_CHAIN_ID_OFFSET</span>) <span class="keyword">div</span> <span class="number">2</span></span><br><span class="line">  <span class="comment"># Encode transaction without signature</span></span><br><span class="line">  <span class="keyword">return</span> rlp.encode(<span class="type">Transaction</span>(</span><br><span class="line">    accountNonce: tx.accountNonce,</span><br><span class="line">    gasPrice: tx.gasPrice,</span><br><span class="line">    gasLimit: tx.gasLimit,</span><br><span class="line">    to: tx.to,</span><br><span class="line">    value: tx.value,</span><br><span class="line">    payload: tx.payload,</span><br><span class="line">    isContractCreation: tx.isContractCreation,</span><br><span class="line">    V: V.byte,</span><br><span class="line">    R: <span class="number">0</span>.u256,</span><br><span class="line">    S: <span class="number">0</span>.u256</span><br><span class="line">    ))</span><br><span class="line"></span><br><span class="line">func txHashNoSignature*(tx: <span class="type">Transaction</span>): <span class="type">Hash256</span> =</span><br><span class="line">  <span class="comment"># Hash transaction without signature</span></span><br><span class="line">  <span class="keyword">return</span> keccak256.digest(<span class="keyword">if</span> tx.V.<span class="built_in">int</span> &gt;= <span class="type">EIP155_CHAIN_ID_OFFSET</span>: tx.rlpEncodeEIP155 <span class="keyword">else</span>: tx.rlpEncode)</span><br></pre></td></tr></table></figure>
@@ -355,7 +360,7 @@ svg4everybody();
               <a href="/docs" class="u-link-ghost" title="Documentation">Documentation</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="/news" class="u-link-ghost" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="u-link-ghost" title="Blog">Blog</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/faq.html" class="u-link-ghost" title="FAQ">FAQ</a>
@@ -369,16 +374,16 @@ svg4everybody();
           <p class="c-category-title u-text-light">Help</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://stackoverflow.com/questions/tagged/embark" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
+              <a href="https://stackoverflow.com/questions/tagged/embark" target="_blank" rel="noopener" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://gitter.im/embark-framework/Lobby" class="u-link-ghost" title="Gitter">Gitter</a>
+              <a href="https://gitter.im/embark-framework/Lobby" target="_blank" rel="noopener" class="u-link-ghost" title="Gitter">Gitter</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/issues" class="u-link-ghost" title="Report issues">Report issues</a>
+              <a href="https://github.com/embarklabs/embark/issues" target="_blank" rel="noopener" class="u-link-ghost" title="Report issues">Report issues</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/blob/master/CODE_OF_CONDUCT.md" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
+              <a href="https://github.com/embarklabs/embark/blob/master/CODE_OF_CONDUCT.md" target="_blank" rel="noopener" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
             </li>
           </ul>
         </div>
@@ -386,10 +391,10 @@ svg4everybody();
           <p class="c-category-title u-text-light">Community</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework" class="u-link-ghost" title="Github">Github</a>
+              <a href="https://github.com/embarklabs" target="_blank" rel="noopener" class="u-link-ghost" title="Github">Github</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://twitter.com/EmbarkProject" class="u-link-ghost" title="Twitter">Twitter</a>
+              <a href="https://twitter.com/EmbarkProject" target="_blank" rel="noopener" class="u-link-ghost" title="Twitter">Twitter</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/contributing.html" class="u-link-ghost" title="Contribute">Contribute</a>
@@ -406,8 +411,8 @@ svg4everybody();
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://status.im/" target="_blank">Status</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://keycard.tech/" target="_blank">Keycard</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://dap.ps/" target="_blank">dap.ps</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.status.im/" target="_blank">Embark</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.status.im/" target="_blank">Subspace</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.embarklabs.io/" target="_blank">Embark</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.embarklabs.io/" target="_blank">Subspace</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://vac.dev/" target="_blank">Vac</a></li>
           </ul>
         </div>
@@ -429,24 +434,10 @@ svg4everybody();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <script>
       const EMBARK_DOC_VERSIONS = {
-        'latest': 'https://embark.status.im/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
+        'latest': 'https://embark.embarklabs.io/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
       };
     </script>
 
-    
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-    (function(f, a, t, h, o, m){
-        a[h]=a[h]||function(){(a[h].q=a[h].q||[]).push(arguments)};
-        o=f.createElement('script'),
-        m=f.getElementsByTagName('script')[0];
-        o.async=1; o.src=t; o.id='fathom-script';
-        m.parentNode.insertBefore(o,m)
-    })(document, window, '//fathom.status.im/tracker.js', 'fathom');
-    fathom('set', 'siteId', 'JOQKN');
-    fathom('trackPageview');
-    </script>
-    <!-- / Fathom -->
     
 
     <script src="/js/index.js"></script>

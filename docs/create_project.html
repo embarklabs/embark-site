@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <title>Creating apps with Embark | Embark</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://embark.status.im/docs/create_project.html">
+  <link rel="canonical" href="https://embark.embarklabs.io/docs/create_project.html">
   <!-- Alternative links -->
   
 
   <!-- Icon -->
   <meta name="msapplication-TileColor" content="#080E1A">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32" />
 
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-60x60-precomposed.png">
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76-precomposed.png">
@@ -22,15 +22,17 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-precomposed.png">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/embark.css">
+  
+<link rel="stylesheet" href="/css/embark.css">
+
   <!-- endbuild -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="Embark">
-  <meta property="og:image" content="/img/share.png?v=0.0.5">
+  <meta property="og:image" content="/img/share.png?v=0.0.5" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.4/styles/dracula.min.css">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -176,7 +178,7 @@ svg4everybody();
               <a href="/community" class="c-navigation__anchor " title="Community">Community</a>
             </li>
             <li class="c-navigation__item">
-              <a href="/news" class="c-navigation__anchor " title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="c-navigation__anchor " title="Blog">Blog</a>
             </li>
           </ul>
         </div>
@@ -188,7 +190,7 @@ svg4everybody();
         <div class="o-flex__item">
           <ul class="o-flex o-flex-center">
             <li class="o-flex__item">
-              <a href="https://github.com/embark-framework/embark" title="Github" target="_blank" class="u-link-ghost">
+              <a href="https://github.com/embarklabs/embark" title="Github" target="_blank" class="u-link-ghost">
                 <svg class="c-icon"><use xlink:href="/../assets/icons/symbols.svg#icon-github"></use></svg>
               </a>
             </li>
@@ -757,8 +759,8 @@ svg4everybody();
         </div>
       </div>
       <div class="o-guided-content__content">
-        <p class="c-meta">Last updated: January 7th 2020
-          (<a href="https://github.com/embark-framework/embark/edit/master/site/source/docs/create_project.md" target="_blank">
+        <p class="c-meta">Last updated: January 19th 2020
+          (<a href="https://github.com/embarklabs/embark/edit/master/site/source/docs/create_project.md" target="_blank">
             Improve this guide <svg class="c-icon c-icon--xs"><use xlink:href="/../../assets/icons/symbols.svg#icon-pen-write-paper"></use></svg>
           </a>)
         </p>
@@ -771,8 +773,8 @@ svg4everybody();
 <h2 id="Creating-a-new-app"><a href="#Creating-a-new-app" class="headerlink" title="Creating a new app"></a>Creating a new app</h2><p>If you prefer starting entirely from scratch, while still getting a ready to use environment, Embark’s <code>new</code> command has got you covered. Similar to the <code>demo</code> command, it will scaffold a new project folder. However, it will not include the demo application. The green field is all yours.</p>
 <div class="c-notification c-notification--info">
   <p><strong>Quick tip: Smart Contract only apps</strong></p>
-  <p></p><p>Smart Contract developers that mainly want to focus on building and deploying Smart Contracts can take advantage of <code>new</code> command’s <code>--contracts-only</code> option, as described <a href="create_project.html#Creating-“contracts-only”-apps">here</a>.</p>
-<p></p>
+  <p><p>Smart Contract developers that mainly want to focus on building and deploying Smart Contracts can take advantage of <code>new</code> command’s <code>--contracts-only</code> option, as described <a href="create_project.html#Creating-“contracts-only”-apps">here</a>.</p>
+</p>
 </div> 
 
 
@@ -781,25 +783,25 @@ svg4everybody();
 
 <h2 id="Creating-apps-from-templates"><a href="#Creating-apps-from-templates" class="headerlink" title="Creating apps from templates"></a>Creating apps from templates</h2><div class="c-notification c-notification--danger">
   <p><strong>DEPRECATION NOTICE</strong></p>
-  <p></p><p>The <code>--template</code> option has been deprecated in v5 and support will be removed in future versions.</p>
-<p></p>
+  <p><p>The <code>--template</code> option has been deprecated in v5 and support will be removed in future versions.</p>
+</p>
 </div> 
 
 
 
 <p>Another possible scenario to start from is taking advantage of a template. Embark <a href="/templates">comes with templates</a> for various environments and frameworks, but you can also use any template created by the community. In order to create a new app from a template, use the <code>--template</code> option and either specify a supported template name, or a Git host URL.</p>
-<p>The following example creates a new application from <a href="https://github.com/embark-framework/embark-typescript-template" target="_blank" rel="noopener">Embark’s TypeScript template</a>:</p>
+<p>The following example creates a new application from <a href="https://github.com/embarklabs/embark-typescript-template" target="_blank" rel="noopener">Embark’s TypeScript template</a>:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark new &lt;YourDAppName&gt; --template typescript</span><br></pre></td></tr></table></figure>
 
-<p>To learn more about supported templates, head over to our <a href="/templates">templates</a> or look out for <code>embark-[template_name]-template</code> <a href="https://github.com/embark-framework?utf8=%E2%9C%93&q=template&type=&language=" target="_blank" rel="noopener">repositories</a>.</p>
+<p>To learn more about supported templates, head over to our <a href="/templates">templates</a> or look out for <code>embark-[template_name]-template</code> <a href="https://github.com/embarklabs?utf8=%E2%9C%93&q=template&type=&language=" target="_blank" rel="noopener">repositories</a>.</p>
 <p>Templates can also be fetched from external resources as long as they can be referred to via Git host URLs. The following example fetches a template from a GitHub repository and uses that to create that app:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark new &lt;YourDAppName&gt; --template https://github.com/embark-framework/embark-vue-template</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark new &lt;YourDAppName&gt; --template https:&#x2F;&#x2F;github.com&#x2F;embarklabs&#x2F;embark-vue-template</span><br></pre></td></tr></table></figure>
 
 <p>In fact, in case of GitHub, the same can be done with the username/repository shortcut:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark new &lt;YourDAppName&gt; --template embark-framework/embark-vue-template</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark new &lt;YourDAppName&gt; --template embarklabs&#x2F;embark-vue-template</span><br></pre></td></tr></table></figure>
 
 <p>It is even possible to specify the branch by appending a <code>#</code> and the branch name you’re interested in:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark new &lt;YourDAppName&gt; --template status-im/dappcon-workshop-dapp#start-here</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark new &lt;YourDAppName&gt; --template status-im&#x2F;dappcon-workshop-dapp#start-here</span><br></pre></td></tr></table></figure>
 
 <h2 id="Creating-“contracts-only”-apps"><a href="#Creating-“contracts-only”-apps" class="headerlink" title="Creating “contracts-only” apps"></a>Creating “contracts-only” apps</h2><p>Sometimes, all we really want to do is creating, developing, compiling and deploying Smart Contracts without introducing an actual front-end that talks to them. Embark lets us scaffold apps that come with the most minimal setup needed to build and deploy our Smart Contracts, using the <code>--contracts-only</code> option.</p>
 <p>The following command will create a project with all Embark services disabled except the blockchain service.</p>
@@ -808,8 +810,8 @@ svg4everybody();
 <p>This will also affect the generated application structure, as Smart Contract only apps are less complex. Learn more about the application structure of Smart Contract only apps <a href="structure.html#Simple-template-structure">here</a>.</p>
 <div class="c-notification c-notification--info">
   <p><strong>A note on --simple</strong></p>
-  <p></p><p>In earlier versions of Embark the same could be achieved using the <code>--simple</code> option. This option is still supported but will be deprecated and likely be removed in future versions of Embark.</p>
-<p></p>
+  <p><p>In earlier versions of Embark the same could be achieved using the <code>--simple</code> option. This option is still supported but will be deprecated and likely be removed in future versions of Embark.</p>
+</p>
 </div> 
 
 
@@ -861,7 +863,7 @@ svg4everybody();
               <a href="/docs" class="u-link-ghost" title="Documentation">Documentation</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="/news" class="u-link-ghost" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="u-link-ghost" title="Blog">Blog</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/faq.html" class="u-link-ghost" title="FAQ">FAQ</a>
@@ -875,16 +877,16 @@ svg4everybody();
           <p class="c-category-title u-text-light">Help</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://stackoverflow.com/questions/tagged/embark" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
+              <a href="https://stackoverflow.com/questions/tagged/embark" target="_blank" rel="noopener" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://gitter.im/embark-framework/Lobby" class="u-link-ghost" title="Gitter">Gitter</a>
+              <a href="https://gitter.im/embark-framework/Lobby" target="_blank" rel="noopener" class="u-link-ghost" title="Gitter">Gitter</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/issues" class="u-link-ghost" title="Report issues">Report issues</a>
+              <a href="https://github.com/embarklabs/embark/issues" target="_blank" rel="noopener" class="u-link-ghost" title="Report issues">Report issues</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/blob/master/CODE_OF_CONDUCT.md" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
+              <a href="https://github.com/embarklabs/embark/blob/master/CODE_OF_CONDUCT.md" target="_blank" rel="noopener" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
             </li>
           </ul>
         </div>
@@ -892,10 +894,10 @@ svg4everybody();
           <p class="c-category-title u-text-light">Community</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework" class="u-link-ghost" title="Github">Github</a>
+              <a href="https://github.com/embarklabs" target="_blank" rel="noopener" class="u-link-ghost" title="Github">Github</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://twitter.com/EmbarkProject" class="u-link-ghost" title="Twitter">Twitter</a>
+              <a href="https://twitter.com/EmbarkProject" target="_blank" rel="noopener" class="u-link-ghost" title="Twitter">Twitter</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/contributing.html" class="u-link-ghost" title="Contribute">Contribute</a>
@@ -912,8 +914,8 @@ svg4everybody();
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://status.im/" target="_blank">Status</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://keycard.tech/" target="_blank">Keycard</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://dap.ps/" target="_blank">dap.ps</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.status.im/" target="_blank">Embark</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.status.im/" target="_blank">Subspace</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.embarklabs.io/" target="_blank">Embark</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.embarklabs.io/" target="_blank">Subspace</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://vac.dev/" target="_blank">Vac</a></li>
           </ul>
         </div>
@@ -935,24 +937,10 @@ svg4everybody();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <script>
       const EMBARK_DOC_VERSIONS = {
-        'latest': 'https://embark.status.im/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
+        'latest': 'https://embark.embarklabs.io/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
       };
     </script>
 
-    
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-    (function(f, a, t, h, o, m){
-        a[h]=a[h]||function(){(a[h].q=a[h].q||[]).push(arguments)};
-        o=f.createElement('script'),
-        m=f.getElementsByTagName('script')[0];
-        o.async=1; o.src=t; o.id='fathom-script';
-        m.parentNode.insertBefore(o,m)
-    })(document, window, '//fathom.status.im/tracker.js', 'fathom');
-    fathom('set', 'siteId', 'JOQKN');
-    fathom('trackPageview');
-    </script>
-    <!-- / Fathom -->
     
 
     <script src="/js/index.js"></script>

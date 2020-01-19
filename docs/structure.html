@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <title>Application Structure | Embark</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://embark.status.im/docs/structure.html">
+  <link rel="canonical" href="https://embark.embarklabs.io/docs/structure.html">
   <!-- Alternative links -->
   
 
   <!-- Icon -->
   <meta name="msapplication-TileColor" content="#080E1A">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32" />
 
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-60x60-precomposed.png">
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76-precomposed.png">
@@ -22,15 +22,17 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-precomposed.png">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/embark.css">
+  
+<link rel="stylesheet" href="/css/embark.css">
+
   <!-- endbuild -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="Embark">
-  <meta property="og:image" content="/img/share.png?v=0.0.5">
+  <meta property="og:image" content="/img/share.png?v=0.0.5" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.4/styles/dracula.min.css">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -176,7 +178,7 @@ svg4everybody();
               <a href="/community" class="c-navigation__anchor " title="Community">Community</a>
             </li>
             <li class="c-navigation__item">
-              <a href="/news" class="c-navigation__anchor " title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="c-navigation__anchor " title="Blog">Blog</a>
             </li>
           </ul>
         </div>
@@ -188,7 +190,7 @@ svg4everybody();
         <div class="o-flex__item">
           <ul class="o-flex o-flex-center">
             <li class="o-flex__item">
-              <a href="https://github.com/embark-framework/embark" title="Github" target="_blank" class="u-link-ghost">
+              <a href="https://github.com/embarklabs/embark" title="Github" target="_blank" class="u-link-ghost">
                 <svg class="c-icon"><use xlink:href="/../assets/icons/symbols.svg#icon-github"></use></svg>
               </a>
             </li>
@@ -757,8 +759,8 @@ svg4everybody();
         </div>
       </div>
       <div class="o-guided-content__content">
-        <p class="c-meta">Last updated: September 3rd 2019
-          (<a href="https://github.com/embark-framework/embark/edit/master/site/source/docs/structure.md" target="_blank">
+        <p class="c-meta">Last updated: January 19th 2020
+          (<a href="https://github.com/embarklabs/embark/edit/master/site/source/docs/structure.md" target="_blank">
             Improve this guide <svg class="c-icon c-icon--xs"><use xlink:href="/../../assets/icons/symbols.svg#icon-pen-write-paper"></use></svg>
           </a>)
         </p>
@@ -768,15 +770,15 @@ svg4everybody();
 <p><strong>For Smart Contract developers</strong>: This <a href="#Smart-Contracts-only-template-structure">guide covers</a> projects that have been created with the <a href="create_project.html#Creating-“contracts-only”-apps"><code>--contracts-only</code> option</a> as well.</p>
 <div class="c-notification c-notification--info">
   <p><strong>Project structure with other tools</strong></p>
-  <p></p><p>Since Embark version 4.0.0, it’s possible (and recommended) to use Embark along with existing front-end tooling. This could be tools such as <a href="https://cli.angular.io" target="_blank" rel="noopener">Angular CLI</a>, <a href="https://cli.vuejs.org" target="_blank" rel="noopener">Vue CLI</a> or <a href="https://github.com/facebook/create-react-app" target="_blank" rel="noopener">Create React App</a>.</p>
+  <p><p>Since Embark version 4.0.0, it’s possible (and recommended) to use Embark along with existing front-end tooling. This could be tools such as <a href="https://cli.angular.io" target="_blank" rel="noopener">Angular CLI</a>, <a href="https://cli.vuejs.org" target="_blank" rel="noopener">Vue CLI</a> or <a href="https://github.com/facebook/create-react-app" target="_blank" rel="noopener">Create React App</a>.</p>
 <p>When using Embark in combination with any of these or similar tools, the application structure will likely look different as each of these tools comes with an opinion and preference on how an application should be structured.</p>
-<p></p>
+</p>
 </div> 
 
 
 
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>An Embark project’s structure is pretty straight forward. It contains a <code>config</code>, a <code>test</code>, an <code>app</code>, a <code>contracts</code> and a <code>dist</code> folder for their dedicated purposes. Most of them are self explanatory, but let’s take a look at the overall file tree.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">├── app/</span><br><span class="line">├── contracts/</span><br><span class="line">├── config</span><br><span class="line">|   ├── blockchain.js</span><br><span class="line">|   └── contracts.js</span><br><span class="line">|   └── storage.js</span><br><span class="line">|   └── communication.js</span><br><span class="line">|   └── webserver.js</span><br><span class="line">└── test/</span><br><span class="line">└── dist/</span><br><span class="line">└── chains.json</span><br><span class="line">└── embark.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">├── app&#x2F;</span><br><span class="line">├── contracts&#x2F;</span><br><span class="line">├── config</span><br><span class="line">|   ├── blockchain.js</span><br><span class="line">|   └── contracts.js</span><br><span class="line">|   └── storage.js</span><br><span class="line">|   └── communication.js</span><br><span class="line">|   └── webserver.js</span><br><span class="line">└── test&#x2F;</span><br><span class="line">└── dist&#x2F;</span><br><span class="line">└── chains.json</span><br><span class="line">└── embark.json</span><br></pre></td></tr></table></figure>
 
 <h3 id="app"><a href="#app" class="headerlink" title="app/"></a>app/</h3><p>This is where the frontend of our decentralized application lives. It doesn’t matter whether we prefer using one of the amazing frameworks out there, like Angular or Vue, or if we like writing vanilla JavaScript. Embark will build our application with all the source files it can find inside <code>app</code>.</p>
 <h3 id="contracts"><a href="#contracts" class="headerlink" title="contracts/"></a>contracts/</h3><p>Smart Contracts go here. Embark will automatically compile, deploy &amp; track our Smart Contracts from this directory. While Embark is running, it’ll detect changes made to any Smart Contract and re-deploy it and its dependencies if necessary.</p>
@@ -798,11 +800,10 @@ svg4everybody();
 <h3 id="chains-json"><a href="#chains-json" class="headerlink" title="chains.json"></a>chains.json</h3><p>This file is used to keep track of the deployed contracts in each chain. This is a super useful feature as it lets Embark figure out all by itself if and when a Smart Contract needs to be (re)deployed. See chains file documentation for more information</p>
 <h3 id="embark-json"><a href="#embark-json" class="headerlink" title="embark.json"></a>embark.json</h3><p>In order to provide as much flexibility for our users as possible, Embark comes with an <code>embark.json</code> file that lets us configure our own directory structure. This file is also used to specify Embark plugins and other configurations. More information on how to use this configuration file, can be found in <a href="configuration.html">configuring embark.json</a>.</p>
 <h2 id="Smart-Contracts-only-template-structure"><a href="#Smart-Contracts-only-template-structure" class="headerlink" title="Smart Contracts only template structure"></a>Smart Contracts only template structure</h2><p>When creating a project using the <code>--contracts-only</code> option, the resulting structure is a little bit simpler. Let’s take quick look:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">├── contracts/</span><br><span class="line">└── test/</span><br><span class="line">└── dist/</span><br><span class="line">├── contracts.js</span><br><span class="line">└── chains.json</span><br><span class="line">└── embark.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">├── contracts&#x2F;</span><br><span class="line">└── test&#x2F;</span><br><span class="line">└── dist&#x2F;</span><br><span class="line">├── contracts.js</span><br><span class="line">└── chains.json</span><br><span class="line">└── embark.json</span><br></pre></td></tr></table></figure>
 
 <p>Most components or services that our application could take advantage of are disabled with the exception of Smart Contracts support, but we can still re-enable them in the <code>embark.json</code> configuration file if needed. Notice that this time, the <code>contracts.js</code> config file is in the root of the project’s directory. This is because in the <code>embark.json</code> config file,<code>contracts</code> points to a path in the same folder.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">&quot;config&quot;: &#123;</span><br><span class="line">  &quot;contracts&quot;: &quot;contracts.js&quot;,</span><br><span class="line">  &quot;blockchain&quot;: false,</span><br><span class="line">  &quot;storage&quot;: false,</span><br><span class="line">  &quot;communication&quot;: false,</span><br><span class="line">  &quot;webserver&quot;: false</span><br><span class="line">&#125;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
 <p>As mentioned earlier, other services like storage and blockchain support can be easily re-enabled by changing them to path values as well.</p>
 <p>Awesome, now that we have a better understanding of what a project in Embark looks like, let’s head over to the next guide and explore the different ways of running an application with Embark!</p>
 
@@ -853,7 +854,7 @@ svg4everybody();
               <a href="/docs" class="u-link-ghost" title="Documentation">Documentation</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="/news" class="u-link-ghost" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="u-link-ghost" title="Blog">Blog</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/faq.html" class="u-link-ghost" title="FAQ">FAQ</a>
@@ -867,16 +868,16 @@ svg4everybody();
           <p class="c-category-title u-text-light">Help</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://stackoverflow.com/questions/tagged/embark" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
+              <a href="https://stackoverflow.com/questions/tagged/embark" target="_blank" rel="noopener" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://gitter.im/embark-framework/Lobby" class="u-link-ghost" title="Gitter">Gitter</a>
+              <a href="https://gitter.im/embark-framework/Lobby" target="_blank" rel="noopener" class="u-link-ghost" title="Gitter">Gitter</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/issues" class="u-link-ghost" title="Report issues">Report issues</a>
+              <a href="https://github.com/embarklabs/embark/issues" target="_blank" rel="noopener" class="u-link-ghost" title="Report issues">Report issues</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/blob/master/CODE_OF_CONDUCT.md" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
+              <a href="https://github.com/embarklabs/embark/blob/master/CODE_OF_CONDUCT.md" target="_blank" rel="noopener" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
             </li>
           </ul>
         </div>
@@ -884,10 +885,10 @@ svg4everybody();
           <p class="c-category-title u-text-light">Community</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework" class="u-link-ghost" title="Github">Github</a>
+              <a href="https://github.com/embarklabs" target="_blank" rel="noopener" class="u-link-ghost" title="Github">Github</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://twitter.com/EmbarkProject" class="u-link-ghost" title="Twitter">Twitter</a>
+              <a href="https://twitter.com/EmbarkProject" target="_blank" rel="noopener" class="u-link-ghost" title="Twitter">Twitter</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/contributing.html" class="u-link-ghost" title="Contribute">Contribute</a>
@@ -904,8 +905,8 @@ svg4everybody();
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://status.im/" target="_blank">Status</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://keycard.tech/" target="_blank">Keycard</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://dap.ps/" target="_blank">dap.ps</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.status.im/" target="_blank">Embark</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.status.im/" target="_blank">Subspace</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.embarklabs.io/" target="_blank">Embark</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.embarklabs.io/" target="_blank">Subspace</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://vac.dev/" target="_blank">Vac</a></li>
           </ul>
         </div>
@@ -927,24 +928,10 @@ svg4everybody();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <script>
       const EMBARK_DOC_VERSIONS = {
-        'latest': 'https://embark.status.im/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
+        'latest': 'https://embark.embarklabs.io/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
       };
     </script>
 
-    
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-    (function(f, a, t, h, o, m){
-        a[h]=a[h]||function(){(a[h].q=a[h].q||[]).push(arguments)};
-        o=f.createElement('script'),
-        m=f.getElementsByTagName('script')[0];
-        o.async=1; o.src=t; o.id='fathom-script';
-        m.parentNode.insertBefore(o,m)
-    })(document, window, '//fathom.status.im/tracker.js', 'fathom');
-    fathom('set', 'siteId', 'JOQKN');
-    fathom('trackPageview');
-    </script>
-    <!-- / Fathom -->
     
 
     <script src="/js/index.js"></script>

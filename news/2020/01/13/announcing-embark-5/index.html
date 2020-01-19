@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <title>Introducing Embark 5 | Embark</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://embark.status.im/news/2020/01/13/announcing-embark-5/index.html">
+  <link rel="canonical" href="https://embark.embarklabs.io/news/2020/01/13/announcing-embark-5/index.html">
   <!-- Alternative links -->
   
 
   <!-- Icon -->
   <meta name="msapplication-TileColor" content="#080E1A">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32" />
 
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-60x60-precomposed.png">
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76-precomposed.png">
@@ -22,15 +22,17 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-precomposed.png">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/embark.css">
+  
+<link rel="stylesheet" href="/css/embark.css">
+
   <!-- endbuild -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="Embark">
-  <meta property="og:image" content="/img/share.png?v=0.0.5">
+  <meta property="og:image" content="/img/share.png?v=0.0.5" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.4/styles/dracula.min.css">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -175,7 +177,7 @@ svg4everybody();
               <a href="/community" class="c-navigation__anchor " title="Community">Community</a>
             </li>
             <li class="c-navigation__item">
-              <a href="/news" class="c-navigation__anchor is-active" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="c-navigation__anchor is-active" title="Blog">Blog</a>
             </li>
           </ul>
         </div>
@@ -187,7 +189,7 @@ svg4everybody();
         <div class="o-flex__item">
           <ul class="o-flex o-flex-center">
             <li class="o-flex__item">
-              <a href="https://github.com/embark-framework/embark" title="Github" target="_blank" class="u-link-ghost">
+              <a href="https://github.com/embarklabs/embark" title="Github" target="_blank" class="u-link-ghost">
                 <svg class="c-icon"><use xlink:href="/../assets/icons/symbols.svg#icon-github"></use></svg>
               </a>
             </li>
@@ -219,7 +221,7 @@ svg4everybody();
             <img src="https://pbs.twimg.com/profile_images/993785060733194241/p3oAIMDP_400x400.jpg" class="c-avatar-small">
           </span>
           <p class="o-flex__item">
-            Written by <a href="https://twitter.com/pascalprecht" title="Pascal Precht on Twitter">Pascal Precht</a> on the <time class="u-text-ghost">13th January 2020</time>
+            Written by <a href="https://twitter.com/pascalprecht" target="_blank" rel="noopener" title="Pascal Precht on Twitter">Pascal Precht</a> on the <time class="u-text-ghost">13th January 2020</time>
           </p>
         </div>
       </div>
@@ -237,7 +239,7 @@ svg4everybody();
 <main role="main" class="o-standard-page">
   <section class="o-container-medium o-distance">
     <p>If you’ve been following the development of Embark you’re probably aware that we regularly put out alpha and beta releases for upcoming major or feature versions of Embark. In the past ~6 months since the release of Embark 4, we’ve published 10 alpha releases and one beta release for Embark 5 and today we’re happy to announce the Embark 5 stable release!</p>
-<p>In this post we’ll be looking at some of the main changes and features to get up and running with v5. Notice that we’ve add a <a href="https://embark.status.im/docs/migrating_from_3.x.html#Updating-to-v5">migration guide</a> to our official docs as well.</p>
+<p>In this post we’ll be looking at some of the main changes and features to get up and running with v5. Notice that we’ve add a <a href="https://embark.status.im/docs/migrating_from_3.x.html#Updating-to-v5" target="_blank" rel="noopener">migration guide</a> to our official docs as well.</p>
 <h2 id="New-Features"><a href="#New-Features" class="headerlink" title="New Features"></a>New Features</h2><p>Let’s first start with new features that have been introduced in Embark 5.</p>
 <h3 id="Whisper-client-configuration"><a href="#Whisper-client-configuration" class="headerlink" title="Whisper client configuration"></a>Whisper client configuration</h3><p>Prior to Embark 5, Embark would use the same blockchain client to enable blockchain features and communication features for Whisper. With Embark 5, Embark spins up a separate client for Whisper. This also ensures that that Whisper service stays in tact when the blockchain service is turned off and vice versa.</p>
 <p>To specify a client, use the new <code>client</code> configuration property which defaults to <code>geth</code>:</p>
@@ -284,8 +286,8 @@ svg4everybody();
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">config(&#123;</span><br><span class="line">  contracts: &#123;</span><br><span class="line">    deploy: &#123;</span><br><span class="line">      SomeContract: &#123;&#125; <span class="comment">// options as discussed in the Smart Contract configuration guide</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>Testing is covered in-depth in our <a href="/docs/contracts_testing.html">testing guide</a>.</p>
-<p>To see any of the new APIs in action, have a look at our <a href="https://github.com/embark-framework/embark/tree/ba0d6d17f30018d8258c65d85f17bea100c3ad0a/dapps/templates" target="_blank" rel="noopener">template</a> and <a href="https://github.com/embark-framework/embark/tree/ba0d6d17f30018d8258c65d85f17bea100c3ad0a/dapps/tests" target="_blank" rel="noopener">test dapps</a> in the official Embark repository.</p>
-<p>Obviously we’ve worked on many more things as part of the v5 release. For a full list of features and bug fixes, head over to our <a href="https://github.com/embark-framework/embark/blob/master/CHANGELOG.md#500-2020-01-07" target="_blank" rel="noopener">changelog</a>.</p>
+<p>To see any of the new APIs in action, have a look at our <a href="https://github.com/embarklabs/embark/tree/ba0d6d17f30018d8258c65d85f17bea100c3ad0a/dapps/templates" target="_blank" rel="noopener">template</a> and <a href="https://github.com/embarklabs/embark/tree/ba0d6d17f30018d8258c65d85f17bea100c3ad0a/dapps/tests" target="_blank" rel="noopener">test dapps</a> in the official Embark repository.</p>
+<p>Obviously we’ve worked on many more things as part of the v5 release. For a full list of features and bug fixes, head over to our <a href="https://github.com/embarklabs/embark/blob/master/CHANGELOG.md#500-2020-01-07" target="_blank" rel="noopener">changelog</a>.</p>
 <p>As always, we encourage our users to install the latest version of Embark and give it a spin. Feedback is very welcome and we can’t wait to see the great apps you’ll be building with it!</p>
 
   </section>
@@ -327,7 +329,7 @@ svg4everybody();
               <a href="/docs" class="u-link-ghost" title="Documentation">Documentation</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="/news" class="u-link-ghost" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="u-link-ghost" title="Blog">Blog</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/faq.html" class="u-link-ghost" title="FAQ">FAQ</a>
@@ -341,16 +343,16 @@ svg4everybody();
           <p class="c-category-title u-text-light">Help</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://stackoverflow.com/questions/tagged/embark" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
+              <a href="https://stackoverflow.com/questions/tagged/embark" target="_blank" rel="noopener" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://gitter.im/embark-framework/Lobby" class="u-link-ghost" title="Gitter">Gitter</a>
+              <a href="https://gitter.im/embark-framework/Lobby" target="_blank" rel="noopener" class="u-link-ghost" title="Gitter">Gitter</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/issues" class="u-link-ghost" title="Report issues">Report issues</a>
+              <a href="https://github.com/embarklabs/embark/issues" target="_blank" rel="noopener" class="u-link-ghost" title="Report issues">Report issues</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/blob/master/CODE_OF_CONDUCT.md" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
+              <a href="https://github.com/embarklabs/embark/blob/master/CODE_OF_CONDUCT.md" target="_blank" rel="noopener" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
             </li>
           </ul>
         </div>
@@ -358,10 +360,10 @@ svg4everybody();
           <p class="c-category-title u-text-light">Community</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework" class="u-link-ghost" title="Github">Github</a>
+              <a href="https://github.com/embarklabs" target="_blank" rel="noopener" class="u-link-ghost" title="Github">Github</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://twitter.com/EmbarkProject" class="u-link-ghost" title="Twitter">Twitter</a>
+              <a href="https://twitter.com/EmbarkProject" target="_blank" rel="noopener" class="u-link-ghost" title="Twitter">Twitter</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/contributing.html" class="u-link-ghost" title="Contribute">Contribute</a>
@@ -378,8 +380,8 @@ svg4everybody();
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://status.im/" target="_blank">Status</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://keycard.tech/" target="_blank">Keycard</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://dap.ps/" target="_blank">dap.ps</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.status.im/" target="_blank">Embark</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.status.im/" target="_blank">Subspace</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.embarklabs.io/" target="_blank">Embark</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.embarklabs.io/" target="_blank">Subspace</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://vac.dev/" target="_blank">Vac</a></li>
           </ul>
         </div>
@@ -401,24 +403,10 @@ svg4everybody();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <script>
       const EMBARK_DOC_VERSIONS = {
-        'latest': 'https://embark.status.im/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
+        'latest': 'https://embark.embarklabs.io/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
       };
     </script>
 
-    
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-    (function(f, a, t, h, o, m){
-        a[h]=a[h]||function(){(a[h].q=a[h].q||[]).push(arguments)};
-        o=f.createElement('script'),
-        m=f.getElementsByTagName('script')[0];
-        o.async=1; o.src=t; o.id='fathom-script';
-        m.parentNode.insertBefore(o,m)
-    })(document, window, '//fathom.status.im/tracker.js', 'fathom');
-    fathom('set', 'siteId', 'JOQKN');
-    fathom('trackPageview');
-    </script>
-    <!-- / Fathom -->
     
 
     <script src="/js/index.js"></script>

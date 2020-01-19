@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <title>Nim vs Crystal - Part 2 - Threading & Tooling | Embark</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://embark.status.im/news/2019/11/21/nim-vs-crystal-part-2-threading-tooling/index.html">
+  <link rel="canonical" href="https://embark.embarklabs.io/news/2019/11/21/nim-vs-crystal-part-2-threading-tooling/index.html">
   <!-- Alternative links -->
   
 
   <!-- Icon -->
   <meta name="msapplication-TileColor" content="#080E1A">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32" />
 
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-60x60-precomposed.png">
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76-precomposed.png">
@@ -22,15 +22,17 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-precomposed.png">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/embark.css">
+  
+<link rel="stylesheet" href="/css/embark.css">
+
   <!-- endbuild -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="Embark">
-  <meta property="og:image" content="/img/share.png?v=0.0.5">
+  <meta property="og:image" content="/img/share.png?v=0.0.5" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.4/styles/dracula.min.css">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -175,7 +177,7 @@ svg4everybody();
               <a href="/community" class="c-navigation__anchor " title="Community">Community</a>
             </li>
             <li class="c-navigation__item">
-              <a href="/news" class="c-navigation__anchor is-active" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="c-navigation__anchor is-active" title="Blog">Blog</a>
             </li>
           </ul>
         </div>
@@ -187,7 +189,7 @@ svg4everybody();
         <div class="o-flex__item">
           <ul class="o-flex o-flex-center">
             <li class="o-flex__item">
-              <a href="https://github.com/embark-framework/embark" title="Github" target="_blank" class="u-link-ghost">
+              <a href="https://github.com/embarklabs/embark" title="Github" target="_blank" class="u-link-ghost">
                 <svg class="c-icon"><use xlink:href="/../assets/icons/symbols.svg#icon-github"></use></svg>
               </a>
             </li>
@@ -219,7 +221,7 @@ svg4everybody();
             <img src="https://avatars1.githubusercontent.com/u/29288325?s=400&v=4" class="c-avatar-small">
           </span>
           <p class="o-flex__item">
-            Written by <a href="https://twitter.com/rbin" title="Robin Percy on Twitter">Robin Percy</a> on the <time class="u-text-ghost">21st November 2019</time>
+            Written by <a href="https://twitter.com/rbin" target="_blank" rel="noopener" title="Robin Percy on Twitter">Robin Percy</a> on the <time class="u-text-ghost">21st November 2019</time>
           </p>
         </div>
       </div>
@@ -290,11 +292,11 @@ svg4everybody();
 <figure class="highlight nim"><table><tr><td class="code"><pre><span class="line">task test, <span class="string">"Runs the test suite"</span>:</span><br><span class="line">  exec <span class="string">"nim c -r tests/tester"</span></span><br></pre></td></tr></table></figure>
 
 <p>Running nimble test will now use the test task you have defined.</p>
-<br>
+<br/>
 
 <h2 id="Built-in-Tooling-in-Crystal"><a href="#Built-in-Tooling-in-Crystal" class="headerlink" title="Built-in Tooling in Crystal"></a>Built-in Tooling in Crystal</h2><p>One of the things I like most about Crystal is the excellent built-in tooling available. When I look at new languages, especially relatively immature languages; it’s always very reassuring when the language has extensive built-in tooling available to help developers stay productive &amp; happy! In Crystal, there are a bunch of tools that make hacking around in the language super fun, but also help us to stay on the right track with semantics etc.</p>
 <h3 id="Crystal-Project-Packaging"><a href="#Crystal-Project-Packaging" class="headerlink" title="Crystal Project Packaging"></a>Crystal Project Packaging</h3><p>Much the same as the Nimble package manager, <strong><em>although not as good in my opinion,</em></strong> Crystal has it’s own built-in project scaffolder &amp; package manager. I’d recommend using this at all times to ensure semantics are followed. We can use it with the following:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ crystal init lib my_app</span><br><span class="line">      create  my_app/.gitignore</span><br><span class="line">      create  my_app/LICENSE</span><br><span class="line">      create  my_app/README.md</span><br><span class="line">      create  my_app/.travis.yml</span><br><span class="line">      create  my_app/shard.yml</span><br><span class="line">      create  my_app/src/my_app</span><br><span class="line">      create  my_app/src/my_app/version.cr</span><br><span class="line">      create  my_app/spec/spec_helper.cr</span><br><span class="line">      create  my_app/spec/my_app_spec.cr</span><br><span class="line">Initialized empty Git repository in ~/my_app/.git/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ crystal init lib my_app</span><br><span class="line">      create  my_app&#x2F;.gitignore</span><br><span class="line">      create  my_app&#x2F;LICENSE</span><br><span class="line">      create  my_app&#x2F;README.md</span><br><span class="line">      create  my_app&#x2F;.travis.yml</span><br><span class="line">      create  my_app&#x2F;shard.yml</span><br><span class="line">      create  my_app&#x2F;src&#x2F;my_app</span><br><span class="line">      create  my_app&#x2F;src&#x2F;my_app&#x2F;version.cr</span><br><span class="line">      create  my_app&#x2F;spec&#x2F;spec_helper.cr</span><br><span class="line">      create  my_app&#x2F;spec&#x2F;my_app_spec.cr</span><br><span class="line">Initialized empty Git repository in ~&#x2F;my_app&#x2F;.git&#x2F;</span><br></pre></td></tr></table></figure>
 
 <p><code>Shards</code> are Crystal’s packages; distributed in the same way as Ruby Gems, Elixir Libs or Golang packages. Each application we create contains a file in the root directory named shard.yml. This file contains project details and external dependencies. The shard.yml file in the <code>my_app</code> app above looks like this:</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">my_app</span></span><br><span class="line"><span class="attr">version:</span> <span class="number">0.1</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line"><span class="attr">authors:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">Robin</span> <span class="string">Percy</span> <span class="string">&lt;robin@percy.pw&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">targets:</span></span><br><span class="line"><span class="attr">  sayhi_c:</span></span><br><span class="line"><span class="attr">    main:</span> <span class="string">src/my_app.cr</span></span><br><span class="line"></span><br><span class="line"><span class="attr">crystal:</span> <span class="number">0.31</span><span class="number">.1</span></span><br><span class="line"></span><br><span class="line"><span class="attr">license:</span> <span class="string">MIT</span></span><br></pre></td></tr></table></figure>
@@ -305,19 +307,18 @@ svg4everybody();
 <h3 id="Documentation-amp-Formatting"><a href="#Documentation-amp-Formatting" class="headerlink" title="Documentation &amp; Formatting"></a>Documentation &amp; Formatting</h3><p>Crystal has a great built-in tool for generating documentation and formatting files. The documentation that is generated is excellent - built-in html/css and almost instantly ready to deploy.</p>
 <p>To generate documentation, from the project root directory we can simply run:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ crystal doc</span><br></pre></td></tr></table></figure>
-
 <p>This will create a docs directory, with a doc/index.html entry point. All files inside the root src directory of the project from which we ran the command will be considered.</p>
 <p>Alongside this, the built-in Formatter tool is a great feature of the language. We can run the formatter over our project by running:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ crystal tool format</span><br></pre></td></tr></table></figure>
 
 <p>We can use this tool to unify code styles and to submit documentation improvements to Crystal itself. The formatter is also very fast, so very little time is lost if you format the entire project’s codebase instead of just a single file.</p>
-<br>
+<br/>
 
 <h2 id="My-Top-Crystal-Repo"><a href="#My-Top-Crystal-Repo" class="headerlink" title="My Top Crystal Repo"></a>My Top Crystal Repo</h2><h3 id="Kemal"><a href="#Kemal" class="headerlink" title="Kemal"></a>Kemal</h3><p>Obviously, there <strong><em>had</em></strong> to be a web framework appear in this list, seen as that’s what absolutely <strong>every</strong> dev seems to want to implement.  My choice here is my buddy <a href="https://twitter.com/sdogruyol" target="_blank" rel="noopener">Serdar’s</a> library; <a href="https://kemalcr.com/" target="_blank" rel="noopener">Kemal</a>. One feature I really like about it, is how simple it makes it to utilise JSON &amp; create a JSON API.  For example, accepting JSON in a POST request, parsing &amp; mapping it directly to an object:</p>
 <figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">"kemal"</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">"json"</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line">  JSON.mapping(</span><br><span class="line">    <span class="symbol">firstname:</span> String,</span><br><span class="line">    <span class="symbol">surname:</span> String,</span><br><span class="line">  )</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">post <span class="string">"/"</span> <span class="keyword">do</span> |env|</span><br><span class="line">  user = User.from_json env.request.body.not_nil!</span><br><span class="line">  &#123;<span class="symbol">firstname:</span> user.firstname, <span class="symbol">surname:</span> user.surname&#125;.to_json</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">Kemal.run</span><br></pre></td></tr></table></figure>
 
 <p><strong>If you want to find all of the best Crystal libraries, <a href="https://github.com/veelenga/awesome-crystal" target="_blank" rel="noopener">you can check them out here.</a></strong></p>
-<br>
+<br />
 
 <h2 id="My-Top-Nim-Repo"><a href="#My-Top-Nim-Repo" class="headerlink" title="My Top Nim Repo"></a>My Top Nim Repo</h2><h3 id="Nimbus"><a href="#Nimbus" class="headerlink" title="Nimbus"></a>Nimbus</h3><p>My favourite Nim library really has to be <a href="https://github.com/status-im/nimbus" target="_blank" rel="noopener">Nimbus</a>.  This is not because I work for <a href="https://status.im" target="_blank" rel="noopener">Status</a> (the Nimbus creators), but because of the technology.  Nimbus has has such a fantastic reception from the Nim community – and rightly so!</p>
 <p>I think that Nimbus is literally the most impressive Nim library outside of the Nim core, the <a href="https://github.com/status-im/nimbus" target="_blank" rel="noopener">Nim Beacon Chain</a> particularly so!</p>
@@ -376,7 +377,7 @@ svg4everybody();
               <a href="/docs" class="u-link-ghost" title="Documentation">Documentation</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="/news" class="u-link-ghost" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="u-link-ghost" title="Blog">Blog</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/faq.html" class="u-link-ghost" title="FAQ">FAQ</a>
@@ -390,16 +391,16 @@ svg4everybody();
           <p class="c-category-title u-text-light">Help</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://stackoverflow.com/questions/tagged/embark" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
+              <a href="https://stackoverflow.com/questions/tagged/embark" target="_blank" rel="noopener" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://gitter.im/embark-framework/Lobby" class="u-link-ghost" title="Gitter">Gitter</a>
+              <a href="https://gitter.im/embark-framework/Lobby" target="_blank" rel="noopener" class="u-link-ghost" title="Gitter">Gitter</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/issues" class="u-link-ghost" title="Report issues">Report issues</a>
+              <a href="https://github.com/embarklabs/embark/issues" target="_blank" rel="noopener" class="u-link-ghost" title="Report issues">Report issues</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/blob/master/CODE_OF_CONDUCT.md" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
+              <a href="https://github.com/embarklabs/embark/blob/master/CODE_OF_CONDUCT.md" target="_blank" rel="noopener" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
             </li>
           </ul>
         </div>
@@ -407,10 +408,10 @@ svg4everybody();
           <p class="c-category-title u-text-light">Community</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework" class="u-link-ghost" title="Github">Github</a>
+              <a href="https://github.com/embarklabs" target="_blank" rel="noopener" class="u-link-ghost" title="Github">Github</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://twitter.com/EmbarkProject" class="u-link-ghost" title="Twitter">Twitter</a>
+              <a href="https://twitter.com/EmbarkProject" target="_blank" rel="noopener" class="u-link-ghost" title="Twitter">Twitter</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/contributing.html" class="u-link-ghost" title="Contribute">Contribute</a>
@@ -427,8 +428,8 @@ svg4everybody();
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://status.im/" target="_blank">Status</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://keycard.tech/" target="_blank">Keycard</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://dap.ps/" target="_blank">dap.ps</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.status.im/" target="_blank">Embark</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.status.im/" target="_blank">Subspace</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.embarklabs.io/" target="_blank">Embark</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.embarklabs.io/" target="_blank">Subspace</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://vac.dev/" target="_blank">Vac</a></li>
           </ul>
         </div>
@@ -450,24 +451,10 @@ svg4everybody();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <script>
       const EMBARK_DOC_VERSIONS = {
-        'latest': 'https://embark.status.im/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
+        'latest': 'https://embark.embarklabs.io/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
       };
     </script>
 
-    
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-    (function(f, a, t, h, o, m){
-        a[h]=a[h]||function(){(a[h].q=a[h].q||[]).push(arguments)};
-        o=f.createElement('script'),
-        m=f.getElementsByTagName('script')[0];
-        o.async=1; o.src=t; o.id='fathom-script';
-        m.parentNode.insertBefore(o,m)
-    })(document, window, '//fathom.status.im/tracker.js', 'fathom');
-    fathom('set', 'siteId', 'JOQKN');
-    fathom('trackPageview');
-    </script>
-    <!-- / Fathom -->
     
 
     <script src="/js/index.js"></script>

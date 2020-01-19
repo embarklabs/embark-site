@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+  <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <title>Nim vs Crystal - Part 1 - Performance & Interoperability | Embark</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://embark.status.im/news/2019/11/18/nim-vs-crystal-part-1-performance-interoperability/index.html">
+  <link rel="canonical" href="https://embark.embarklabs.io/news/2019/11/18/nim-vs-crystal-part-1-performance-interoperability/index.html">
   <!-- Alternative links -->
   
 
   <!-- Icon -->
   <meta name="msapplication-TileColor" content="#080E1A">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicon-16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32" />
 
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-60x60-precomposed.png">
   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon-76x76-precomposed.png">
@@ -22,15 +22,17 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon-precomposed.png">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon-precomposed.png">
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/embark.css">
+  
+<link rel="stylesheet" href="/css/embark.css">
+
   <!-- endbuild -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 
   <!-- RSS -->
   <link rel="alternate" href="/atom.xml" title="Embark">
-  <meta property="og:image" content="/img/share.png?v=0.0.5">
+  <meta property="og:image" content="/img/share.png?v=0.0.5" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.4/styles/dracula.min.css">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -175,7 +177,7 @@ svg4everybody();
               <a href="/community" class="c-navigation__anchor " title="Community">Community</a>
             </li>
             <li class="c-navigation__item">
-              <a href="/news" class="c-navigation__anchor is-active" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="c-navigation__anchor is-active" title="Blog">Blog</a>
             </li>
           </ul>
         </div>
@@ -187,7 +189,7 @@ svg4everybody();
         <div class="o-flex__item">
           <ul class="o-flex o-flex-center">
             <li class="o-flex__item">
-              <a href="https://github.com/embark-framework/embark" title="Github" target="_blank" class="u-link-ghost">
+              <a href="https://github.com/embarklabs/embark" title="Github" target="_blank" class="u-link-ghost">
                 <svg class="c-icon"><use xlink:href="/../assets/icons/symbols.svg#icon-github"></use></svg>
               </a>
             </li>
@@ -219,7 +221,7 @@ svg4everybody();
             <img src="https://avatars1.githubusercontent.com/u/29288325?s=400&v=4" class="c-avatar-small">
           </span>
           <p class="o-flex__item">
-            Written by <a href="https://twitter.com/rbin" title="Robin Percy on Twitter">Robin Percy</a> on the <time class="u-text-ghost">18th November 2019</time>
+            Written by <a href="https://twitter.com/rbin" target="_blank" rel="noopener" title="Robin Percy on Twitter">Robin Percy</a> on the <time class="u-text-ghost">18th November 2019</time>
           </p>
         </div>
       </div>
@@ -244,7 +246,7 @@ svg4everybody();
 <p>Back in mid-2017, I sent out a tweet asking my dev followers which low-level languages they would recommend I take a look at.  For a while before this, I had been waiting for a new systems language for me to learn, but until this tweet, I never really found one that I was <em>actually</em> interested in taking a look at.</p>
 <p>Naturally, both languages have a <strong>TONNE</strong> of features, so I’m not going to go into details on things like basic types, etc.  I will simply compare the biggest things that attracted me to both languages.  For in-depth tutorials on the features of both langs, check out the <a href="https://crystal-lang.org/reference/" target="_blank" rel="noopener">Crystal Docs</a>, or the <a href="https://nim-lang.org/docs/lib.html" target="_blank" rel="noopener">Nim Docs</a>.</p>
 <p>Anyway, let’s take a look at both languages, and you can make your own mind up as to which you’d rather be programming in.  Maybe both.  Maybe neither!</p>
-<br>
+<br/>
 
 <h2 id="Nim"><a href="#Nim" class="headerlink" title="Nim"></a>Nim</h2><p>Nim is a statically-typed, imperative, systems programming language; aiming to achieve the performance of C, be as expressive as Lisp, and have a simple, clear syntax like Python.  I have to say, from my experience Nim manages to <strong><em>pretty much</em></strong> fit these criterion.  </p>
 <blockquote>
@@ -256,7 +258,7 @@ svg4everybody();
 <p>When I say it <em>pretty much</em> matches the criteria, the only statement that doesn’t quite match is achieving the performance of C.  In realise this is an almost impossible task, but Nim actually did fall short on a few occasions when it came to performance.  I will go into detail about this later on in the article.</p>
 <h3 id="Installing-Nim"><a href="#Installing-Nim" class="headerlink" title="Installing Nim"></a>Installing Nim</h3><p>Nim is super easy to install.  If you’re on Windows, <a href="https://nim-lang.org/install_windows.html" target="_blank" rel="noopener">head over here</a>, and download/run the installer.</p>
 <p>If you’re on any other Unix-based system, you can run:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ curl https://nim-lang.org/choosenim/init.sh -sSf | sh`</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ curl https:&#x2F;&#x2F;nim-lang.org&#x2F;choosenim&#x2F;init.sh -sSf | sh&#96;</span><br></pre></td></tr></table></figure>
 
 <p>If you’re on Mac, and with Homebrew installed, simply run:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install nim</span><br></pre></td></tr></table></figure>
@@ -276,10 +278,11 @@ svg4everybody();
 
 <p>The Nim compiler will compile the <code>logic.c</code> file in addition to <code>calculator.nim</code> and link both into an executable; which outputs <code>10</code> when run.  Very sharp, in my opinion!</p>
 <h4 id="JavaScript-Invocation"><a href="#JavaScript-Invocation" class="headerlink" title="JavaScript Invocation"></a>JavaScript Invocation</h4><p>Even sharper, in my opinion, is the ability to interop with JavaScript.  Create a file titled <code>host.html</code> with the following content:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">addTwoIntegers</span>(<span class="params">a, b</span>)</span></span></span><br><span class="line"><span class="undefined">    &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> a + b;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"calculator.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">addTwoIntegers</span><span class="params">(a, b)</span></span></span></span><br><span class="line">    &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> a + b;</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"calculator.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>Now, create another <code>calculator.nim</code> file with the following content (or reuse the one from the above C example):</p>
 <figure class="highlight nim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">proc</span> addTwoIntegers(a, b: <span class="built_in">int</span>): <span class="built_in">int</span> <span class="meta">&#123;.importc.&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">when</span> isMainModule:</span><br><span class="line">  echo addTwoIntegers(<span class="number">3</span>, <span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+
 
 <p>Compile the Nim code to JavaScript by running:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ nim js -o:calculator.js calculator.nim</span><br></pre></td></tr></table></figure>
@@ -291,7 +294,8 @@ svg4everybody();
 <p>Running this will output the following:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">html</span> <span class="attr">class</span>=<span class="string">'has-navbar-fixed-top'</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">'has-navbar-fixed-top'</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> &gt;</span>Hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> &gt;</span>World<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Example<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<br>
+
+<br/>
 
 <h2 id="Crystal"><a href="#Crystal" class="headerlink" title="Crystal"></a>Crystal</h2><p>Crystal is a statically-typed, object-oriented, systems programming language; with the aim of achieving the speed and performance of c/c++, whilst having a syntax as simple, readable, and easy to learn as Ruby.</p>
 <p>I first came across Crystal when I saw <a href="https://twitter.com/sferik" target="_blank" rel="noopener">@sferik</a> giving a talk on it in Poland back in 2015. <a href="https://www.youtube.com/watch?v=Ysm4IU4aWoQ" target="_blank" rel="noopener">Video here.</a> It was a great talk, and sparked my interest in Crystal right there and then. When I initially explored Crystal I thought it looked awesome, but I was too busy with all the other languages I was using on a daily basis, to be able to focus my time on it properly.</p>
@@ -316,13 +320,13 @@ svg4everybody();
 <p>I’ll mention now that there are no implicit type conversions except to_unsafe - explained here when invoking a C function: you must pass the exact type that is expected.</p>
 <p>Also worth noting at this point is that since we have built our C file into an object file, we can include it in the project directory and link from there. When we want to link dynamic libraries or installed C packages, we can just link them without including a path.</p>
 <p>So, if we build our project file and run it, we get the following:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ crystal build --release src/sayhi_c.cr</span><br><span class="line"></span><br><span class="line">$ ./sayhi_c</span><br><span class="line"></span><br><span class="line"> &gt; Hi Status!</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ crystal build --release src&#x2F;sayhi_c.cr</span><br><span class="line"></span><br><span class="line">$ .&#x2F;sayhi_c</span><br><span class="line"></span><br><span class="line"> &gt; Hi Status!</span><br></pre></td></tr></table></figure>
 
 <p>As you can see, Nim takes the winners trophy in this case, as it is <strong>much</strong> simpler to achieve a similar goal.  With Nim, we were also able to link both the Nim and C files into the same executable, which Crystal sadly cannot do.</p>
-<br>
+<br/>
 
 <h2 id="Performance-Tests"><a href="#Performance-Tests" class="headerlink" title="Performance Tests"></a>Performance Tests</h2><h3 id="Parsing-amp-calculating-values-from-a-large-JSON-file"><a href="#Parsing-amp-calculating-values-from-a-large-JSON-file" class="headerlink" title="Parsing &amp; calculating values from a large JSON file:"></a>Parsing &amp; calculating values from a large JSON file:</h3><p>Firstly, we need to generate our large JSON file.  For this test, we’re going to generate a dataset which includes <strong>1 Million</strong> items.</p>
-<center><iframe src="https://giphy.com/embed/13B1WmJg7HwjGU" width="480" height="270" frameborder="0"></iframe></center>
+<center><iframe src="https://giphy.com/embed/13B1WmJg7HwjGU" width="480" height="270" frameBorder="0"></iframe></center>
 
 <p>We can do so with the following Ruby script:</p>
 <figure class="highlight rb"><table><tr><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'json'</span></span><br><span class="line"></span><br><span class="line">x = []</span><br><span class="line"></span><br><span class="line"><span class="number">1000000</span>.times <span class="keyword">do</span></span><br><span class="line">  h = &#123;</span><br><span class="line">    <span class="string">'x'</span> =&gt; rand,</span><br><span class="line">    <span class="string">'y'</span> =&gt; rand,</span><br><span class="line">    <span class="string">'z'</span> =&gt; rand,</span><br><span class="line">    <span class="string">'name'</span> =&gt; (<span class="string">'a'</span>..<span class="string">'z'</span>).to_a.shuffle[<span class="number">0</span>..<span class="number">5</span>].join + <span class="string">' '</span> + rand(<span class="number">10000</span>).to_s,</span><br><span class="line">    <span class="string">'opts'</span> =&gt; &#123;<span class="string">'1'</span> =&gt; [<span class="number">1</span>, <span class="literal">true</span>]&#125;,</span><br><span class="line">  &#125;</span><br><span class="line">  x &lt;&lt; h</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">File.open(<span class="string">"1.json"</span>, <span class="string">'w'</span>) &#123; <span class="params">|f|</span> f.write JSON.pretty_generate(<span class="string">'coordinates'</span> =&gt; x, <span class="string">'info'</span> =&gt; <span class="string">"some info"</span>) &#125;</span><br></pre></td></tr></table></figure>
@@ -362,7 +366,7 @@ svg4everybody();
 </tr>
 </tbody></table>
 <p>As you can see; in this case <strong><em>Crystal</em></strong> is the more performant language – taking less time to execute &amp; complete the test, and also fewer Megabytes in memory doing so.</p>
-<br>
+<br/>
 
 <h3 id="Base64-encoding-decoding-a-large-blob"><a href="#Base64-encoding-decoding-a-large-blob" class="headerlink" title="Base64 encoding / decoding a large blob:"></a>Base64 encoding / decoding a large blob:</h3><p>In this test; we will firstly encode and then decode a string, with a current timestamp into newly allocated buffers, utilising the Base64 algorithm.  For starters, let’s look at the <strong><em>Nim</em></strong> test:</p>
 <figure class="highlight nim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> base64, times, strutils, strformat</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="type">STR_SIZE</span> = <span class="number">131072</span></span><br><span class="line"><span class="keyword">let</span> <span class="type">TRIES</span> = <span class="number">8192</span></span><br><span class="line"><span class="keyword">let</span> str = strutils.repeat('a', <span class="type">STR_SIZE</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str2 = base64.encode(str)</span><br><span class="line"><span class="literal">stdout</span>.write(<span class="string">fmt"encode &#123;str[..3]&#125;... to &#123;str2[..3]&#125;...: "</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> t = times.epochTime()</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> s:<span class="built_in">int64</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="type">TRIES</span>:</span><br><span class="line">  str2 = base64.encode(str)</span><br><span class="line">  s += len(str2)</span><br><span class="line">  i += <span class="number">1</span></span><br><span class="line">echo(<span class="string">fmt"&#123;s&#125;, &#123;formatFloat(times.epochTime() - t, ffDefault, 6)&#125;"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str3 = base64.decode(str2)</span><br><span class="line"><span class="literal">stdout</span>.write(<span class="string">fmt"decode &#123;str2[..3]&#125;... to &#123;str3[..3]&#125;...: "</span>)</span><br><span class="line"></span><br><span class="line">t = times.epochTime()</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line">s = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="type">TRIES</span>:</span><br><span class="line">  str3 = base64.decode(str2)</span><br><span class="line">  s += len(str3)</span><br><span class="line">  i += <span class="number">1</span></span><br><span class="line">echo(<span class="string">fmt"&#123;s&#125;, &#123;formatFloat(times.epochTime() - t, ffDefault, 6)&#125;"</span>)</span><br></pre></td></tr></table></figure>
@@ -404,7 +408,7 @@ svg4everybody();
 <li>Part 3: Crypto, DApps and P2P</li>
 </ul>
 <p>These two articles will be released over the next couple of days, so don’t forget to come back then to check them out!</p>
-<p>Thanks for reading - as ever, if you have any questions, please feel free to reach out at <a href="mailto:robin@status.im" target="_blank" rel="noopener">robin@status</a>.</p>
+<p>Thanks for reading - as ever, if you have any questions, please feel free to reach out at <a href="mailto:robin@status.im">robin@status</a>.</p>
 <p><a href="https://twitter.com/rbin" target="_blank" rel="noopener"> - <strong>@rbin</strong></a></p>
 
   </section>
@@ -450,7 +454,7 @@ svg4everybody();
               <a href="/docs" class="u-link-ghost" title="Documentation">Documentation</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="/news" class="u-link-ghost" title="Blog">Blog</a>
+              <a href="https://blog.embarklabs.io" target="_blank" rel="noopener" class="u-link-ghost" title="Blog">Blog</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/faq.html" class="u-link-ghost" title="FAQ">FAQ</a>
@@ -464,16 +468,16 @@ svg4everybody();
           <p class="c-category-title u-text-light">Help</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://stackoverflow.com/questions/tagged/embark" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
+              <a href="https://stackoverflow.com/questions/tagged/embark" target="_blank" rel="noopener" class="u-link-ghost" title="Embark Questions">Stack Overflow</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://gitter.im/embark-framework/Lobby" class="u-link-ghost" title="Gitter">Gitter</a>
+              <a href="https://gitter.im/embark-framework/Lobby" target="_blank" rel="noopener" class="u-link-ghost" title="Gitter">Gitter</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/issues" class="u-link-ghost" title="Report issues">Report issues</a>
+              <a href="https://github.com/embarklabs/embark/issues" target="_blank" rel="noopener" class="u-link-ghost" title="Report issues">Report issues</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework/embark/blob/master/CODE_OF_CONDUCT.md" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
+              <a href="https://github.com/embarklabs/embark/blob/master/CODE_OF_CONDUCT.md" target="_blank" rel="noopener" class="u-link-ghost" title="Code of Conduct">Code of Conduct</a>
             </li>
           </ul>
         </div>
@@ -481,10 +485,10 @@ svg4everybody();
           <p class="c-category-title u-text-light">Community</p>
           <ul class="o-list-bare">
             <li class="o-list-bare__item">
-              <a href="https://github.com/embark-framework" class="u-link-ghost" title="Github">Github</a>
+              <a href="https://github.com/embarklabs" target="_blank" rel="noopener" class="u-link-ghost" title="Github">Github</a>
             </li>
             <li class="o-list-bare__item">
-              <a href="https://twitter.com/EmbarkProject" class="u-link-ghost" title="Twitter">Twitter</a>
+              <a href="https://twitter.com/EmbarkProject" target="_blank" rel="noopener" class="u-link-ghost" title="Twitter">Twitter</a>
             </li>
             <li class="o-list-bare__item">
               <a href="/docs/contributing.html" class="u-link-ghost" title="Contribute">Contribute</a>
@@ -501,8 +505,8 @@ svg4everybody();
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://status.im/" target="_blank">Status</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://keycard.tech/" target="_blank">Keycard</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://dap.ps/" target="_blank">dap.ps</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.status.im/" target="_blank">Embark</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.status.im/" target="_blank">Subspace</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.embarklabs.io/" target="_blank">Embark</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.embarklabs.io/" target="_blank">Subspace</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://vac.dev/" target="_blank">Vac</a></li>
           </ul>
         </div>
@@ -524,24 +528,10 @@ svg4everybody();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <script>
       const EMBARK_DOC_VERSIONS = {
-        'latest': 'https://embark.status.im/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
+        'latest': 'https://embark.embarklabs.io/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
       };
     </script>
 
-    
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-    (function(f, a, t, h, o, m){
-        a[h]=a[h]||function(){(a[h].q=a[h].q||[]).push(arguments)};
-        o=f.createElement('script'),
-        m=f.getElementsByTagName('script')[0];
-        o.async=1; o.src=t; o.id='fathom-script';
-        m.parentNode.insertBefore(o,m)
-    })(document, window, '//fathom.status.im/tracker.js', 'fathom');
-    fathom('set', 'siteId', 'JOQKN');
-    fathom('trackPageview');
-    </script>
-    <!-- / Fathom -->
     
 
     <script src="/js/index.js"></script>
