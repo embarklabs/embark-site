@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://embark.embarklabs.io/docs/blockchain_configuration.html">
+  <link rel="canonical" href="https://framework.embarklabs.io/docs/blockchain_configuration.html">
   <!-- Alternative links -->
   
 
@@ -759,7 +759,7 @@ svg4everybody();
         </div>
       </div>
       <div class="o-guided-content__content">
-        <p class="c-meta">Last updated: January 19th 2020
+        <p class="c-meta">Last updated: January 29th 2020
           (<a href="https://github.com/embarklabs/embark/edit/master/site/source/docs/blockchain_configuration.md" target="_blank">
             Improve this guide <svg class="c-icon c-icon--xs"><use xlink:href="/../../assets/icons/symbols.svg#icon-pen-write-paper"></use></svg>
           </a>)
@@ -772,7 +772,7 @@ svg4everybody();
 <p>If you want more configuration options, you can find them <a href="/docs/blockchain_configuration.html#Advanced-parameters">here</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  default: &#123;</span><br><span class="line">    enabled: true,</span><br><span class="line">    client: &quot;geth&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  development: &#123;  </span><br><span class="line">    clientConfig: &#123;</span><br><span class="line">      miningMode: &#39;dev&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  testnet: &#123;</span><br><span class="line">    endpoint: &quot;https:&#x2F;&#x2F;external-node.com&quot;,</span><br><span class="line">    accounts: [</span><br><span class="line">      &#123;</span><br><span class="line">        mnemonic: &quot;12 word mnemonic&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Similar to <a href="/docs/contracts_configuration.html">configuring Smart Contracts</a>, this config contains environments that help configuring certain parameters differently depending of the environment. You can read more about <a href="https://embark.embarklabs.io/docs/environments.html">environments here</a>.</p>
+<p>Similar to <a href="/docs/contracts_configuration.html">configuring Smart Contracts</a>, this config contains environments that help configuring certain parameters differently depending of the environment. You can read more about <a href="https://framework.embarklabs.io/docs/environments.html">environments here</a>.</p>
 <h3 id="Parameter-descriptions"><a href="#Parameter-descriptions" class="headerlink" title="Parameter descriptions"></a>Parameter descriptions</h3><p>Most of the options are self-explanatory, still, here are some brief descriptions:</p>
 <table>
 <thead>
@@ -1094,9 +1094,11 @@ svg4everybody();
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://status.im/" target="_blank">Status</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://keycard.tech/" target="_blank">Keycard</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://dap.ps/" target="_blank">dap.ps</a></li>
-            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://embark.embarklabs.io/" target="_blank">Embark</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://teller.exchange/" target="_blank">Teller</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://assemble.fund/" target="_blank">Assemble</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://subspace.embarklabs.io/" target="_blank">Subspace</a></li>
             <li class="o-list-bare__item"><a class="u-link-ghost" href="https://vac.dev/" target="_blank">Vac</a></li>
+            <li class="o-list-bare__item"><a class="u-link-ghost" href="https://nimbus.team/" target="_blank">Nimbus</a></li>
           </ul>
         </div>
       </div>
@@ -1117,10 +1119,24 @@ svg4everybody();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
     <script>
       const EMBARK_DOC_VERSIONS = {
-        'latest': 'https://embark.embarklabs.io/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
+        'latest': 'https://framework.embarklabs.io/docs','3.2': 'https://5ca4e0fdb29712000adde37f--embark-site-versions.netlify.com/docs/'
       };
     </script>
 
+    
+    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
+    <script>
+    (function(f, a, t, h, o, m){
+        a[h]=a[h]||function(){(a[h].q=a[h].q||[]).push(arguments)};
+        o=f.createElement('script'),
+        m=f.getElementsByTagName('script')[0];
+        o.async=1; o.src=t; o.id='fathom-script';
+        m.parentNode.insertBefore(o,m)
+    })(document, window, '//fathom.status.im/tracker.js', 'fathom');
+    fathom('set', 'siteId', 'YDUQQ');
+    fathom('trackPageview');
+    </script>
+    <!-- / Fathom -->
     
 
     <script src="/js/index.js"></script>
