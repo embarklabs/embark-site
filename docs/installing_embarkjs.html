@@ -241,15 +241,8 @@ svg4everybody();
         </div>
         <div class="c-guide__body">
           <nav role="navigation">
-            <select id="version-select">
-              
-              <option value="latest">stable (v4)</option>
-              
-              <option value="3.2">v3.2</option>
-              
-            </select>
             
-              <div class="o-distance-l">
+              <div class="">
                 <h3 class="c-category-title">Getting Started</h3>
                 <ul class="o-list-bare">
                   
@@ -372,6 +365,17 @@ svg4everybody();
                   
                   <li class="o-list-bare__item">
                     <a href="/docs/pipeline_and_webpack.html" title="Building & Compiling" class="u-link-uniform ">Building & Compiling</a>
+                    <!-- <div class="o-distance-m">
+                      <ul class="o-list-bare c-navigation__subnav">
+                        <li class="o-list-bare__item">
+                          <a href="#" title="What is Embark?" class="u-link-uniform">What is Embark?</a>
+                        </li>
+                      </ul>
+                    </div> -->
+                  </li>
+                  
+                  <li class="o-list-bare__item">
+                    <a href="/docs/executing_scripts.html" title="Executing Scripts" class="u-link-uniform ">Executing Scripts</a>
                     <!-- <div class="o-distance-m">
                       <ul class="o-list-bare c-navigation__subnav">
                         <li class="o-list-bare__item">
@@ -759,7 +763,7 @@ svg4everybody();
         </div>
       </div>
       <div class="o-guided-content__content">
-        <p class="c-meta">Last updated: January 19th 2020
+        <p class="c-meta">Last updated: February 18th 2020
           (<a href="https://github.com/embarklabs/embark/edit/master/site/source/docs/installing_embarkjs.md" target="_blank">
             Improve this guide <svg class="c-icon c-icon--xs"><use xlink:href="/../../assets/icons/symbols.svg#icon-pen-write-paper"></use></svg>
           </a>)
@@ -796,7 +800,7 @@ svg4everybody();
 
 <p>This will request account access and if the user grants access to his accounts, you will be able to make transaction calls.</p>
 <h3 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h3><ul>
-<li><a href="contracts_javascript.html">EmbarkJS.Contract</a> - To interact with smart contracts. Typically Embark automatically initializes all your deployed contracts with this. uses web3.js 1.2.4</li>
+<li><a href="contracts_javascript.html">EmbarkJS.Contract</a> - To interact with smart contracts. Typically Embark automatically initializes all your deployed contracts with this. uses web3.js 1.2.6</li>
 <li><a href="storage_javascript.html">EmbarkJS.Storage</a> - To interact with the configured decentralized storage. Includes bindings to save &amp; retrieve data, upload &amp; download files, etc..</li>
 <li><a href="messages_javascript.html">EmbarkJS.Communication</a> - To interact with the configured decentralized messages system. Includes bindings to listen to topics and send messages.</li>
 <li><a href="naming_javascript.html">EmbarkJS.Names</a> - To interact with the configured decentralized naming system such as ENS. Includes bindings to look up the address of a domain name as well as retrieve a domain name given an address.</li>

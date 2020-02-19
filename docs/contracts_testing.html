@@ -241,15 +241,8 @@ svg4everybody();
         </div>
         <div class="c-guide__body">
           <nav role="navigation">
-            <select id="version-select">
-              
-              <option value="latest">stable (v4)</option>
-              
-              <option value="3.2">v3.2</option>
-              
-            </select>
             
-              <div class="o-distance-l">
+              <div class="">
                 <h3 class="c-category-title">Getting Started</h3>
                 <ul class="o-list-bare">
                   
@@ -372,6 +365,17 @@ svg4everybody();
                   
                   <li class="o-list-bare__item">
                     <a href="/docs/pipeline_and_webpack.html" title="Building & Compiling" class="u-link-uniform ">Building & Compiling</a>
+                    <!-- <div class="o-distance-m">
+                      <ul class="o-list-bare c-navigation__subnav">
+                        <li class="o-list-bare__item">
+                          <a href="#" title="What is Embark?" class="u-link-uniform">What is Embark?</a>
+                        </li>
+                      </ul>
+                    </div> -->
+                  </li>
+                  
+                  <li class="o-list-bare__item">
+                    <a href="/docs/executing_scripts.html" title="Executing Scripts" class="u-link-uniform ">Executing Scripts</a>
                     <!-- <div class="o-distance-m">
                       <ul class="o-list-bare c-navigation__subnav">
                         <li class="o-list-bare__item">
@@ -759,7 +763,7 @@ svg4everybody();
         </div>
       </div>
       <div class="o-guided-content__content">
-        <p class="c-meta">Last updated: January 19th 2020
+        <p class="c-meta">Last updated: February 18th 2020
           (<a href="https://github.com/embarklabs/embark/edit/master/site/source/docs/contracts_testing.md" target="_blank">
             Improve this guide <svg class="c-icon c-icon--xs"><use xlink:href="/../../assets/icons/symbols.svg#icon-pen-write-paper"></use></svg>
           </a>)
@@ -767,7 +771,7 @@ svg4everybody();
         <div class="o-standard-page">
           <h1>Testing Smart Contracts</h1>
           <p>Testing is a crucial part of developing robust and high-quality software. That’s why Embark aims to make testing our Smart Contract as easy as possible. In this guide we’ll explore Embark specific testing APIs and how to write tests for our Smart Contracts.</p>
-<h2 id="Creating-tests"><a href="#Creating-tests" class="headerlink" title="Creating tests"></a>Creating tests</h2><p>Test files resides in a project’s <code>test</code> folder. Any JavaScript file within <code>test/</code> is considered a spec file and will be executed by Embark as such. A spec file contains test specs which are grouped in <code>contract()</code> functions. A single spec is written using <code>it()</code> blocks. </p>
+<h2 id="Creating-tests"><a href="#Creating-tests" class="headerlink" title="Creating tests"></a>Creating tests</h2><p>Test files resides in a project’s <code>test</code> folder. Any JavaScript file within <code>test/</code> is considered a spec file and will be executed by Embark as such. A spec file contains test specs which are grouped in <code>contract()</code> functions. A single spec is written using <code>it()</code> blocks.</p>
 <p>Here’s what such a test could look like:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">contract(&#39;SomeContract&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  it(&#39;should pass&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">    assert.ok(true);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
@@ -826,7 +830,7 @@ svg4everybody();
 
 
 
-<h2 id="Configuring-accounts"><a href="#Configuring-accounts" class="headerlink" title="Configuring accounts"></a>Configuring accounts</h2><p>Accounts within the testing environment can be configured <a href="/docs/contracts_deployment.html">just like we’re used to</a>. The same rules apply here, and <a href="/docs/contracts_deployment.html#Configuring-account-balance-for-development">configuring an Ether balance</a> is supported as well. Configuring custom accounts in tests is especially useful if we want to use a specific account for our tests. </p>
+<h2 id="Configuring-accounts"><a href="#Configuring-accounts" class="headerlink" title="Configuring accounts"></a>Configuring accounts</h2><p>Accounts within the testing environment can be configured <a href="/docs/contracts_deployment.html">just like we’re used to</a>. The same rules apply here, and <a href="/docs/contracts_deployment.html#Configuring-account-balance-for-development">configuring an Ether balance</a> is supported as well. Configuring custom accounts in tests is especially useful if we want to use a specific account for our tests.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">config(&#123;</span><br><span class="line">  blockchain: &#123;</span><br><span class="line">    accounts: [</span><br><span class="line">      &#123;</span><br><span class="line">        privateKeyFile: &#39;path&#x2F;to&#x2F;file&#39;,</span><br><span class="line">        balance: &#39;42 shannon&#39;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="Accessing-Accounts"><a href="#Accessing-Accounts" class="headerlink" title="Accessing Accounts"></a>Accessing Accounts</h2><p>Obviously, we want to access all configured accounts as well. Sometimes we want to test functions or methods that require us to specify a <code>from</code> address to send transactions from. For those cases we very likely want to access any of our our available accounts.</p>
@@ -848,7 +852,7 @@ svg4everybody();
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const SimpleStorage &#x3D; require(&#39;Embark&#x2F;contracts&#x2F;SimpleStorage&#39;);</span><br><span class="line"></span><br><span class="line">contract(&#39;SimpleStorage Deploy&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  let SimpleStorageInstance;</span><br><span class="line"></span><br><span class="line">  before(async function() &#123;</span><br><span class="line">    SimpleStorageInstance &#x3D; await SimpleStorage.deploy(&#123; arguments: [150] &#125;).send();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(&#39;should set constructor value&#39;, async () &#x3D;&gt; &#123;</span><br><span class="line">    let result &#x3D; await SimpleStorageInstance.methods.storedData().call();</span><br><span class="line">    assert.strictEqual(parseInt(result, 10), 150);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="Util-functions"><a href="#Util-functions" class="headerlink" title="Util functions"></a>Util functions</h2><h3 id="assert-reverts"><a href="#assert-reverts" class="headerlink" title="assert.reverts"></a>assert.reverts</h3><p>Using <code>assert.reverts</code>, you can easily assert that your transaction reverts.</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">await</span> assert.reverts(contractMethodAndArguments[, options][, message])</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">await</span> assert.reverts(contractMethodAndArguments[, options][, message]);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><code>contractMethodAndArguments</code>: [Function] Contract method to call <code>send</code> on, including the arguments</li>
@@ -856,13 +860,13 @@ svg4everybody();
 <li><code>message</code>: [String] Optional string to match the revert message</li>
 </ul>
 <p>Returns a promise that you can wait for with <code>await</code>.</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">it(<span class="string">"should revert with a value lower than 5"</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">await</span> assert.reverts(SimpleStorage.methods.setHigher5(<span class="number">2</span>), &#123;<span class="attr">from</span>: web3.eth.defaultAccount&#125;,</span><br><span class="line">      <span class="string">'Returned error: VM Exception while processing transaction: revert Value needs to be higher than 5'</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">it(<span class="string">"should revert with a value lower than 5"</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">await</span> assert.reverts(SimpleStorage.methods.setHigher5(<span class="number">2</span>), &#123;<span class="attr">from</span>: web3.eth.defaultAccount&#125;,</span><br><span class="line">    <span class="string">'Returned error: VM Exception while processing transaction: revert Value needs to be higher than 5'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h3 id="assert-eventEmitted"><a href="#assert-eventEmitted" class="headerlink" title="assert.eventEmitted"></a>assert.eventEmitted</h3><p>Using <code>eventEmitted</code>, you can assert that a transaction has emitted an event. You can also check for the returned values.</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">assert.eventEmitted(transaction, event[, values])</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">assert.eventEmitted(transaction, event[, values]);</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><code>transaction</code>: [Object] Transaction object returns by a <code>send</code> call</li>
+<li><code>transaction</code>: [Object] Transaction object returned by a <code>send</code> call</li>
 <li><code>event</code>: [String] Name of the event being emitted</li>
 <li><code>values</code>: [Array or Object] Optional array or object of the returned values of the event.<ul>
 <li>Using array: The order of the values put in the array need to match the order in which the values are returned by the event</li>
@@ -870,14 +874,23 @@ svg4everybody();
 </ul>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">it(<span class="string">'asserts that the event was triggered'</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">const</span> transaction = <span class="keyword">await</span> SimpleStorage.methods.set(<span class="number">100</span>).send();</span><br><span class="line"> assert.eventEmitted(transaction, <span class="string">'EventOnSet'</span>, &#123;<span class="attr">value</span>: <span class="string">"100"</span>, <span class="attr">success</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">it(<span class="string">'asserts that the event was triggered'</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> transaction = <span class="keyword">await</span> SimpleStorage.methods.set(<span class="number">100</span>).send();</span><br><span class="line">  assert.eventEmitted(transaction, <span class="string">'EventOnSet'</span>, &#123;<span class="attr">value</span>: <span class="string">"100"</span>, <span class="attr">success</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h3 id="increaseTime"><a href="#increaseTime" class="headerlink" title="increaseTime"></a>increaseTime</h3><p>This function lets you increase the time of the EVM. It is useful in the case where you want to test expiration times for example.</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">await</span> increaseTime(amount);</span><br></pre></td></tr></table></figure>
 
 <p><code>amount</code>: [Number] Number of seconds to increase</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">it(<span class="string">"should have expired after increasing time"</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">await</span> increaseTime(<span class="number">5001</span>);</span><br><span class="line">    <span class="keyword">const</span> isExpired = <span class="keyword">await</span> Expiration.methods.isExpired().call();</span><br><span class="line">    assert.strictEqual(isExpired, <span class="literal">true</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">it(<span class="string">"should have expired after increasing time"</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">await</span> increaseTime(<span class="number">5001</span>);</span><br><span class="line">  <span class="keyword">const</span> isExpired = <span class="keyword">await</span> Expiration.methods.isExpired().call();</span><br><span class="line">  assert.strictEqual(isExpired, <span class="literal">true</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+<h3 id="mineAtTimestamp"><a href="#mineAtTimestamp" class="headerlink" title="mineAtTimestamp"></a>mineAtTimestamp</h3><p>This function mines a block and sets its <code>block.timestamp</code> accordingly. It let’s you mine in the future.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">await</span> mineAtTimestamp(timestamp);</span><br></pre></td></tr></table></figure>
+
+<p><code>timestamp</code>: [Number] Timestamp when to mine the block</p>
+<h3 id="getEvmVersion"><a href="#getEvmVersion" class="headerlink" title="getEvmVersion"></a>getEvmVersion</h3><p><code>getEvmVersion</code> returns the version and type of EVM.</p>
+<p>It is useful if you want to make sure the EVM has the sufficient version to support an RPC call or if you want to make sure that you are using a VM like Ganache-CLI before making a call that only a VM supports.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">await</span> getEvmVersion();</span><br></pre></td></tr></table></figure>
+
+<p>Returns a string, eg: <code>EthereumJS TestRPC/v2.9.2/ethereum-js</code></p>
 <h2 id="Code-coverage"><a href="#Code-coverage" class="headerlink" title="Code coverage"></a>Code coverage</h2><p>Embark allows you to generate a coverage report for your Solidity Smart Contracts by passing the <code>--coverage</code> option on the <code>embark test</code> command.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark test --coverage</span><br></pre></td></tr></table></figure>
 
@@ -906,7 +919,7 @@ svg4everybody();
       </div>
       <div class="o-guided-content__addition">
         <h3 class="c-category-title">Contents</h3>
-        <ol class="o-list-bare"><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Creating-tests" class="u-link-uniform">Creating tests</a><ol class="o-list-bare__child"><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#Importing-EmbarkJS" class="u-link-uniform">Importing EmbarkJS</a></li></ol></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Running-tests" class="u-link-uniform">Running tests</a><ol class="o-list-bare__child"><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#Running-test-subsets" class="u-link-uniform">Running test subsets</a></li><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#Running-tests-against-a-different-node" class="u-link-uniform">Running tests against a different node</a></li><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#Outputting-gas-cost-details" class="u-link-uniform">Outputting gas cost details</a></li></ol></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Test-environment" class="u-link-uniform">Test environment</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Configuring-Smart-Contracts-for-tests" class="u-link-uniform">Configuring Smart Contracts for tests</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Accessing-Smart-Contract-instances" class="u-link-uniform">Accessing Smart Contract instances</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Configuring-accounts" class="u-link-uniform">Configuring accounts</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Accessing-Accounts" class="u-link-uniform">Accessing Accounts</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Connecting-to-a-different-node" class="u-link-uniform">Connecting to a different node</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Configuring-modules" class="u-link-uniform">Configuring modules</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Manually-deploying-Smart-Contracts" class="u-link-uniform">Manually deploying Smart Contracts</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Util-functions" class="u-link-uniform">Util functions</a><ol class="o-list-bare__child"><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#assert-reverts" class="u-link-uniform">assert.reverts</a></li><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#assert-eventEmitted" class="u-link-uniform">assert.eventEmitted</a></li><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#increaseTime" class="u-link-uniform">increaseTime</a></li></ol></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Code-coverage" class="u-link-uniform">Code coverage</a></li></ol>
+        <ol class="o-list-bare"><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Creating-tests" class="u-link-uniform">Creating tests</a><ol class="o-list-bare__child"><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#Importing-EmbarkJS" class="u-link-uniform">Importing EmbarkJS</a></li></ol></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Running-tests" class="u-link-uniform">Running tests</a><ol class="o-list-bare__child"><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#Running-test-subsets" class="u-link-uniform">Running test subsets</a></li><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#Running-tests-against-a-different-node" class="u-link-uniform">Running tests against a different node</a></li><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#Outputting-gas-cost-details" class="u-link-uniform">Outputting gas cost details</a></li></ol></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Test-environment" class="u-link-uniform">Test environment</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Configuring-Smart-Contracts-for-tests" class="u-link-uniform">Configuring Smart Contracts for tests</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Accessing-Smart-Contract-instances" class="u-link-uniform">Accessing Smart Contract instances</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Configuring-accounts" class="u-link-uniform">Configuring accounts</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Accessing-Accounts" class="u-link-uniform">Accessing Accounts</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Connecting-to-a-different-node" class="u-link-uniform">Connecting to a different node</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Configuring-modules" class="u-link-uniform">Configuring modules</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Manually-deploying-Smart-Contracts" class="u-link-uniform">Manually deploying Smart Contracts</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Util-functions" class="u-link-uniform">Util functions</a><ol class="o-list-bare__child"><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#assert-reverts" class="u-link-uniform">assert.reverts</a></li><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#assert-eventEmitted" class="u-link-uniform">assert.eventEmitted</a></li><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#increaseTime" class="u-link-uniform">increaseTime</a></li><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#mineAtTimestamp" class="u-link-uniform">mineAtTimestamp</a></li><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#getEvmVersion" class="u-link-uniform">getEvmVersion</a></li></ol></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Code-coverage" class="u-link-uniform">Code coverage</a></li></ol>
       </div>
     </div>
   </section>

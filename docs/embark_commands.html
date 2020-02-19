@@ -241,15 +241,8 @@ svg4everybody();
         </div>
         <div class="c-guide__body">
           <nav role="navigation">
-            <select id="version-select">
-              
-              <option value="latest">stable (v4)</option>
-              
-              <option value="3.2">v3.2</option>
-              
-            </select>
             
-              <div class="o-distance-l">
+              <div class="">
                 <h3 class="c-category-title">Getting Started</h3>
                 <ul class="o-list-bare">
                   
@@ -372,6 +365,17 @@ svg4everybody();
                   
                   <li class="o-list-bare__item">
                     <a href="/docs/pipeline_and_webpack.html" title="Building & Compiling" class="u-link-uniform ">Building & Compiling</a>
+                    <!-- <div class="o-distance-m">
+                      <ul class="o-list-bare c-navigation__subnav">
+                        <li class="o-list-bare__item">
+                          <a href="#" title="What is Embark?" class="u-link-uniform">What is Embark?</a>
+                        </li>
+                      </ul>
+                    </div> -->
+                  </li>
+                  
+                  <li class="o-list-bare__item">
+                    <a href="/docs/executing_scripts.html" title="Executing Scripts" class="u-link-uniform ">Executing Scripts</a>
                     <!-- <div class="o-distance-m">
                       <ul class="o-list-bare c-navigation__subnav">
                         <li class="o-list-bare__item">
@@ -759,7 +763,7 @@ svg4everybody();
         </div>
       </div>
       <div class="o-guided-content__content">
-        <p class="c-meta">Last updated: January 19th 2020
+        <p class="c-meta">Last updated: February 18th 2020
           (<a href="https://github.com/embarklabs/embark/edit/master/site/source/docs/embark_commands.md" target="_blank">
             Improve this guide <svg class="c-icon c-icon--xs"><use xlink:href="/../../assets/icons/symbols.svg#icon-pen-write-paper"></use></svg>
           </a>)
@@ -941,6 +945,10 @@ svg4everybody();
 <h2 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark reset</span><br></pre></td></tr></table></figure>
 
 <p>Resets embarks state on this dapp including clearing cache.</p>
+<h2 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark exec [environment] [file|directory]</span><br></pre></td></tr></table></figure>
+
+<p>Executes a given (migration) script to perform complex after deployment operations.</p>
+<p>It’s required to specifiy the <code>environment</code> in which the script(s) will be executed in. In addition it’s possible to specificy a directory in which multiple script live in. Embark will execute them one by one.</p>
 <h2 id="upload"><a href="#upload" class="headerlink" title="upload"></a>upload</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark upload [platform] [environment]</span><br></pre></td></tr></table></figure>
 
 <p>Uploads the DApp to a decentralized storage such as IPFS. <code>platform</code> can be <code>ipfs</code> or <code>swarm</code> or another parameter if supported by a plugin. If no <code>environment</code> is provider embark will use <code>development</code> by default.</p>
@@ -971,7 +979,7 @@ svg4everybody();
       </div>
       <div class="o-guided-content__addition">
         <h3 class="c-category-title">Contents</h3>
-        <ol class="o-list-bare"><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#new" class="u-link-uniform">new</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#demo" class="u-link-uniform">demo</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#build" class="u-link-uniform">build</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#run" class="u-link-uniform">run</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#eject-build-config" class="u-link-uniform">eject-build-config</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#blockchain" class="u-link-uniform">blockchain</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#simulator" class="u-link-uniform">simulator</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#test" class="u-link-uniform">test</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#reset" class="u-link-uniform">reset</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#upload" class="u-link-uniform">upload</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#graph" class="u-link-uniform">graph</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#version" class="u-link-uniform">version</a></li></ol>
+        <ol class="o-list-bare"><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#new" class="u-link-uniform">new</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#demo" class="u-link-uniform">demo</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#build" class="u-link-uniform">build</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#run" class="u-link-uniform">run</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#eject-build-config" class="u-link-uniform">eject-build-config</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#blockchain" class="u-link-uniform">blockchain</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#simulator" class="u-link-uniform">simulator</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#test" class="u-link-uniform">test</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#reset" class="u-link-uniform">reset</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#exec" class="u-link-uniform">exec</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#upload" class="u-link-uniform">upload</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#graph" class="u-link-uniform">graph</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#version" class="u-link-uniform">version</a></li></ol>
       </div>
     </div>
   </section>

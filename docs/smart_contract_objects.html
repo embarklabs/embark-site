@@ -241,15 +241,8 @@ svg4everybody();
         </div>
         <div class="c-guide__body">
           <nav role="navigation">
-            <select id="version-select">
-              
-              <option value="latest">stable (v4)</option>
-              
-              <option value="3.2">v3.2</option>
-              
-            </select>
             
-              <div class="o-distance-l">
+              <div class="">
                 <h3 class="c-category-title">Getting Started</h3>
                 <ul class="o-list-bare">
                   
@@ -372,6 +365,17 @@ svg4everybody();
                   
                   <li class="o-list-bare__item">
                     <a href="/docs/pipeline_and_webpack.html" title="Building & Compiling" class="u-link-uniform ">Building & Compiling</a>
+                    <!-- <div class="o-distance-m">
+                      <ul class="o-list-bare c-navigation__subnav">
+                        <li class="o-list-bare__item">
+                          <a href="#" title="What is Embark?" class="u-link-uniform">What is Embark?</a>
+                        </li>
+                      </ul>
+                    </div> -->
+                  </li>
+                  
+                  <li class="o-list-bare__item">
+                    <a href="/docs/executing_scripts.html" title="Executing Scripts" class="u-link-uniform ">Executing Scripts</a>
                     <!-- <div class="o-distance-m">
                       <ul class="o-list-bare c-navigation__subnav">
                         <li class="o-list-bare__item">
@@ -759,7 +763,7 @@ svg4everybody();
         </div>
       </div>
       <div class="o-guided-content__content">
-        <p class="c-meta">Last updated: January 19th 2020
+        <p class="c-meta">Last updated: February 18th 2020
           (<a href="https://github.com/embarklabs/embark/edit/master/site/source/docs/smart_contract_objects.md" target="_blank">
             Improve this guide <svg class="c-icon c-icon--xs"><use xlink:href="/../../assets/icons/symbols.svg#icon-pen-write-paper"></use></svg>
           </a>)
@@ -772,7 +776,7 @@ svg4everybody();
 <p>Will automatically be available in Javascript as:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; app&#x2F;js&#x2F;index.js</span><br><span class="line"></span><br><span class="line">import SimpleStorage from &#39;Embark&#x2F;contracts&#x2F;SimpleStorage&#39;;</span><br><span class="line"></span><br><span class="line">SimpleStorage.methods.set(100).send();</span><br><span class="line">SimpleStorage.methods.get().call().then(function(value) &#123; console.log(value) &#125;);</span><br><span class="line">SimpleStorage.methods.storedData().call().then(function(value) &#123; console.log(value) &#125;);</span><br></pre></td></tr></table></figure>
 
-<p>The syntax used is <a href="https://web3js.readthedocs.io/en/v1.2.4/" target="_blank">web3.js 1.2.4</a></p>
+<p>The syntax used is <a href="https://web3js.readthedocs.io/en/v1.2.6/" target="_blank">web3.js 1.2.6</a></p>
 
         </div>
         <div class="o-container-medium o-distance-l">

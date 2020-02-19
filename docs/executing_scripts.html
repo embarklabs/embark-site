@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr">
   <head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
-  <title>Introduction to Cockpit | Embark</title>
+  <title>Executing Scripts | Embark</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://framework.embarklabs.io/docs/cockpit_introduction.html">
+  <link rel="canonical" href="https://framework.embarklabs.io/docs/executing_scripts.html">
   <!-- Alternative links -->
   
 
@@ -375,7 +375,7 @@ svg4everybody();
                   </li>
                   
                   <li class="o-list-bare__item">
-                    <a href="/docs/executing_scripts.html" title="Executing Scripts" class="u-link-uniform ">Executing Scripts</a>
+                    <a href="/docs/executing_scripts.html" title="Executing Scripts" class="u-link-uniform is-active">Executing Scripts</a>
                     <!-- <div class="o-distance-m">
                       <ul class="o-list-bare c-navigation__subnav">
                         <li class="o-list-bare__item">
@@ -633,7 +633,7 @@ svg4everybody();
                 <ul class="o-list-bare">
                   
                   <li class="o-list-bare__item">
-                    <a href="/docs/cockpit_introduction.html" title="Introduction" class="u-link-uniform is-active">Introduction</a>
+                    <a href="/docs/cockpit_introduction.html" title="Introduction" class="u-link-uniform ">Introduction</a>
                     <!-- <div class="o-distance-m">
                       <ul class="o-list-bare c-navigation__subnav">
                         <li class="o-list-bare__item">
@@ -763,52 +763,70 @@ svg4everybody();
         </div>
       </div>
       <div class="o-guided-content__content">
-        <p class="c-meta">Last updated: January 19th 2020
-          (<a href="https://github.com/embarklabs/embark/edit/master/site/source/docs/cockpit_introduction.md" target="_blank">
+        <p class="c-meta">Last updated: February 18th 2020
+          (<a href="https://github.com/embarklabs/embark/edit/master/site/source/docs/executing_scripts.md" target="_blank">
             Improve this guide <svg class="c-icon c-icon--xs"><use xlink:href="/../../assets/icons/symbols.svg#icon-pen-write-paper"></use></svg>
           </a>)
         </p>
         <div class="o-standard-page">
-          <h1>Introduction to Cockpit</h1>
-          <p>Probably one of Embark’s most exciting features is its companion web interface Cockpit. With Cockpit, we’re aiming for offering an alternative and more powerful interface to make developing and debugging decentralized applications even easier.</p>
-<p>Throughout the following sections we’ll take a closer look at Cockpit’s features and how we can use it to improve our developer experience when working with Embark!</p>
-<div class="c-notification c-notification--info">
-  <p><strong>A note on Cockpit availability</strong></p>
-  <p><p>Please note that Cockpit is a feature that ships since Embark version 4.0 and is not available in or for previous versions of Embark.</p>
-</p>
-</div> 
+          <h1>Executing Scripts</h1>
+          <p>There are various features in Embark that help you making the deployment of your DApps and Smart Contracts as smooth as possible. Next to general <a href="contracts_configuration.html">Smart Contract Configurations</a>, <a href="contracts_configuration.html#Deployment-hooks">Deployment Hooks</a> and <a href="cockpit_introduction.html">Cockpit</a>, there’s the possibility to run (migration) scripts as well.</p>
+<p>In this guide we’ll explore why scripts are useful and how they can be run.</p>
+<h2 id="Why-scripts"><a href="#Why-scripts" class="headerlink" title="Why scripts?"></a>Why scripts?</h2><p>Given that Embark supports <a href="contracts_configuration.html#afterDeploy-hook">afterDeploy</a> hooks that make it extremely easy to perform custom operations after all of your Smart Contracts have been deployed, you might wonder when and where scripts can be useful.</p>
+<p>It’s important to note that <code>afterDeploy</code> hooks are executed every time all Smart Contracts have been deployed. Often there are cases where running a (migration) script manually is what you really need.</p>
+<p>Scripts let you do exactly that as they can be run at any time, regardless of what your app’s current deployment status is.</p>
+<h2 id="What’s-a-script"><a href="#What’s-a-script" class="headerlink" title="What’s a script?"></a>What’s a script?</h2><p>A script is really just a file with an exported function that has special dependencies injected into it. Here’s what it could look like:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">modules.exports &#x3D; async (&#123; contracts, web3, logger&#125;) &#x3D;&gt; &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="What-is-Cockpit"><a href="#What-is-Cockpit" class="headerlink" title="What is Cockpit?"></a>What is Cockpit?</h2><p>Cockpit is a web application that ships with Embark since version 4.0. It’s an alternative and sometimes more powerful interface in comparison to <a href="/docs/dashboard.html">Embark’s dashboard</a>, that connects to any existing Embark process. Since it’s web-based, Cockpit offers a much richer and more interactive user interface, with additional tools and features that can’t be found in Embark otherwise.</p>
-<p>Some of Cockpit’s features are:</p>
+<p>The injected parameters are:</p>
 <ul>
-<li><strong>Dashboard</strong> - A highly interactive real-time dashboard with service monitoring and deployment status</li>
-<li><strong>Selective Deployment</strong> - A deployment interface that gives you fine-grain control over when and how your Smart Contracts are deployed</li>
-<li><strong>Explorer</strong> - A built-in blockchain explorer making it easy to explore blocks, transactions and accounts</li>
-<li><strong>Code Editor</strong> - A web-based code editor, enabling changing your application’s source on the fly</li>
-<li><strong>Utilities</strong> - Powerful utility tools, including ENS, a transaction decoder and more</li>
+<li><code>contracts</code> - A map object containing all of your Smart Contracts as Embark Smart Contract instances.</li>
+<li><code>web3</code> - A web3 instances to give you access to things like accounts.</li>
+<li><code>logger</code> - Embark’s custom logger.</li>
 </ul>
-<p>Cockpit is actively developed and implements new features on a regular basis.</p>
-<h2 id="Starting-Cockpit"><a href="#Starting-Cockpit" class="headerlink" title="Starting Cockpit"></a>Starting Cockpit</h2><p>Cockpit can be used as soon as Embark has been spinned up in any of our applications. As mentioned in our guide on <a href="/docs/running_apps.html">running apps</a>, Embark will start Cockpit as part of the run process. In fact, Embark even outputs a message, telling us how to open Cockpit:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Access the web backend with the following url: http:&#x2F;&#x2F;localhost:55555?token&#x3D;xxxxx-xxxxx-xxxxx-xxxxx</span><br></pre></td></tr></table></figure>
+<p>Scripts can be located anywhere on your machine, but should most likely live inside your project’s file tree in a dedicated folder.</p>
+<h2 id="Running-scripts"><a href="#Running-scripts" class="headerlink" title="Running scripts"></a>Running scripts</h2><p>To run a script, use the CLI <code>exec</code> command and specify an environment as well as the script to be executed:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark exec development scripts&#x2F;001.js</span><br></pre></td></tr></table></figure>
 
-<p>Notice that <code>token</code> is a security measurement so nobody else can access your Embark processes through Cockpit (unless they have the token). To make it a little more secure, tokens are one-time use only. If we’re trying to access the same session through different browser instances, one instance won’t be able to connect.</p>
-<p>We can always generate a new token inside <a href="/docs/using_the_console.html">Embark’s interactive console</a> using the <a href="/docs/using_the_console.html#Retrieving-authentication-tokens-for-Cockpit"><code>token</code> command</a>.</p>
-<h2 id="Entering-the-Cockpit"><a href="#Entering-the-Cockpit" class="headerlink" title="Entering the Cockpit"></a>Entering the Cockpit</h2><p>Once Embark is running, entering the Cockpit is really just a matter of opening the URL shown by Embark. Let’s explore what Cockpit has to offer in the following guides.</p>
-<p>Bon Voyage! </p>
+<p>The command above will execute the function in <code>scripts/001.js</code> and ensures that Smart Contracts are deployed in the <code>development</code> environment.</p>
+<p>If you have multiple scripts that should run in order, it’s also possible to specify the directory in which they live in:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark exec development scripts</span><br></pre></td></tr></table></figure>
+
+<p>Embark will then find all script files inside the specified directory (in this case <code>scripts</code>) and then run them one by one. If any of the scripts fails by emitting an error, Embark will abort the execution. Scripts are executed in sequence, which means all following scripts won’t be executed in case of an error.</p>
+<h2 id="Error-Handling"><a href="#Error-Handling" class="headerlink" title="Error Handling"></a>Error Handling</h2><p>It’s possible and recommended for scripts to emit proper errors in case they fail to do their job. There are several ways to emit an error depending on how you write your function. Scripts are executed asyncronously, so one way to emit an error is to reject a promise:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">modules.exports &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  return new Promise((resolve, reject) &#x3D;&gt; &#123;</span><br><span class="line">    reject(new Error(&#39;Whoops, something went wrong&#39;));</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; or</span><br><span class="line">modules.exports &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  return Promise.reject(new Error (&#39;Whoops, something went wrong&#39;));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>If your script uses the <code>async/await</code> syntax, errors are emitted by default when using other <code>async</code> APIs that fail:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">module.exports &#x3D; async () &#x3D;&gt; &#123;</span><br><span class="line">  await someAPIThatFails(); &#x2F;&#x2F; this will emit an error</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>If an error is emitted, Embark will do its best to give you information about the original error:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">  001.js running....</span><br><span class="line">Script &#39;001.js&#39; failed to execute. Original error: Error: Whoops, something went wrong</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tracking-scripts"><a href="#Tracking-scripts" class="headerlink" title="Tracking scripts"></a>Tracking scripts</h2><p>Just like Smart Contract deployments are tracked, (migration) scripts can be tracked as well. Since scripts can be one-off operations, Embark will not track whether they have been executed by default. Users are always able to run a script using the <code>exec</code> command as discussed in the previous sections.</p>
+<p>To have Embark “remember” that a certain script was already run, you can use the <code>--track</code> option of the <code>exec</code> command, which will force tracking for this particular script:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark exec development scripts&#x2F;001.js --track</span><br></pre></td></tr></table></figure>
+
+<p>If we try to run the script again with the <code>--track</code> option, Embark will notice that the script has already been executed and tell us that it’s “already done”.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ embark exec development scripts&#x2F;001.js --track</span><br><span class="line">.. 001.js already done</span><br></pre></td></tr></table></figure>
+
+<p>If however, we don’t provide the <code>--track</code> flag, Embark will execute the script as usual.</p>
+<p>For cases in which we <strong>do</strong> want to track a set of scripts, especially when the main use case are migration operations, we can put our scripts in a special “migrations” directory. All scripts inside that directory will be tracked by default.</p>
+<p>The directory can be specified using the <code>migrations</code> property in your project’s embark.json:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  migrations: &#39;migrations&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>If no such property is specified, Embark will default to “migrations”. Running any script or set of scripts is then automatically tracked.</p>
 
         </div>
         <div class="o-container-medium o-distance-l">
           <div class="o-flex o-flex-space-between">
   
   <div class="o-flex__item">
-    <a href="/docs/plugin_reference.html" class="c-button c-button--quite" title="Previous article">Previous</a>
+    <a href="/docs/pipeline_and_webpack.html" class="c-button c-button--quite" title="Previous article">Previous</a>
   </div>
   
   
   <div class="o-flex__item">
-    <a href="/docs/cockpit_dashboard.html" class="c-button c-button--quite" title="Next article">Next</a>
+    <a href="/docs/javascript_usage.html" class="c-button c-button--quite" title="Next article">Next</a>
   </div>
   
 </div>
@@ -818,7 +836,7 @@ svg4everybody();
       </div>
       <div class="o-guided-content__addition">
         <h3 class="c-category-title">Contents</h3>
-        <ol class="o-list-bare"><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#What-is-Cockpit" class="u-link-uniform">What is Cockpit?</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Starting-Cockpit" class="u-link-uniform">Starting Cockpit</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Entering-the-Cockpit" class="u-link-uniform">Entering the Cockpit</a></li></ol>
+        <ol class="o-list-bare"><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Why-scripts" class="u-link-uniform">Why scripts?</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#What’s-a-script" class="u-link-uniform">What’s a script?</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Running-scripts" class="u-link-uniform">Running scripts</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Error-Handling" class="u-link-uniform">Error Handling</a></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Tracking-scripts" class="u-link-uniform">Tracking scripts</a></li></ol>
       </div>
     </div>
   </section>

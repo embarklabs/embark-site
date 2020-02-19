@@ -241,15 +241,8 @@ svg4everybody();
         </div>
         <div class="c-guide__body">
           <nav role="navigation">
-            <select id="version-select">
-              
-              <option value="latest">stable (v4)</option>
-              
-              <option value="3.2">v3.2</option>
-              
-            </select>
             
-              <div class="o-distance-l">
+              <div class="">
                 <h3 class="c-category-title">Getting Started</h3>
                 <ul class="o-list-bare">
                   
@@ -372,6 +365,17 @@ svg4everybody();
                   
                   <li class="o-list-bare__item">
                     <a href="/docs/pipeline_and_webpack.html" title="Building & Compiling" class="u-link-uniform ">Building & Compiling</a>
+                    <!-- <div class="o-distance-m">
+                      <ul class="o-list-bare c-navigation__subnav">
+                        <li class="o-list-bare__item">
+                          <a href="#" title="What is Embark?" class="u-link-uniform">What is Embark?</a>
+                        </li>
+                      </ul>
+                    </div> -->
+                  </li>
+                  
+                  <li class="o-list-bare__item">
+                    <a href="/docs/executing_scripts.html" title="Executing Scripts" class="u-link-uniform ">Executing Scripts</a>
                     <!-- <div class="o-distance-m">
                       <ul class="o-list-bare c-navigation__subnav">
                         <li class="o-list-bare__item">
@@ -759,7 +763,7 @@ svg4everybody();
         </div>
       </div>
       <div class="o-guided-content__content">
-        <p class="c-meta">Last updated: January 19th 2020
+        <p class="c-meta">Last updated: February 18th 2020
           (<a href="https://github.com/embarklabs/embark/edit/master/site/source/docs/naming_configuration.md" target="_blank">
             Improve this guide <svg class="c-icon c-icon--xs"><use xlink:href="/../../assets/icons/symbols.svg#icon-pen-write-paper"></use></svg>
           </a>)
@@ -768,8 +772,22 @@ svg4everybody();
           <h1>Naming System Configuration</h1>
           <p>We can configure different naming systems in Embark. In this guide we’ll explore how this is done using the Ethereum Name Service.</p>
 <h2 id="Configuration-basics"><a href="#Configuration-basics" class="headerlink" title="Configuration basics"></a>Configuration basics</h2><p>Embark checks our configuration in <code>config/namesystem.js</code> by default. A naming system configuration isn’t crucial to run Embark, so this only needs to be enabled when planing to use a naming system.</p>
-<p>When using ENS as our provider, we can set the <code>register</code> section to pre-register sub-domains. This feature is  only available in the development environment:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  default: &#123;</span><br><span class="line">    enabled: true,</span><br><span class="line">    available_providers: [&#39;ens&#39;, &#39;ipns&#39;],</span><br><span class="line">    provider: &#39;ens&#39;,</span><br><span class="line">    register: &#123;</span><br><span class="line">      rootDomain: &#39;embark.eth&#39;,</span><br><span class="line">      subdomains: &#123;</span><br><span class="line">        &#x2F;&#x2F; List of subdomains.</span><br><span class="line">        &#x2F;&#x2F; The key is the name (eg: status -&gt; status.embark.eth)</span><br><span class="line">        &#x2F;&#x2F; The value is the address to where the subdomain points</span><br><span class="line">        &#39;status&#39;: &#39;0x1a2f3b98e434c02363f3dac3174af93c1d690914&#39;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>When using ENS as our provider, we can set the <code>register</code> section to pre-register sub-domains.</p>
+<p>This feature is  only available in the development environment:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="keyword">default</span>: &#123;</span><br><span class="line">    enabled: <span class="literal">true</span>,</span><br><span class="line">    available_providers: [<span class="string">'ens'</span>, <span class="string">'ipns'</span>],</span><br><span class="line">    provider: <span class="string">'ens'</span>,</span><br><span class="line">    register: &#123;</span><br><span class="line">      rootDomain: <span class="string">'embark.eth'</span>,</span><br><span class="line">      subdomains: &#123;</span><br><span class="line">        <span class="comment">// List of subdomains.</span></span><br><span class="line">        <span class="comment">// The key is the name (eg: status -&gt; status.embark.eth)</span></span><br><span class="line">        <span class="comment">// The value is the address to where the subdomain points</span></span><br><span class="line">        <span class="string">'status'</span>: <span class="string">'0x1a2f3b98e434c02363f3dac3174af93c1d690914'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h3><ul>
+<li><code>rootDomain</code>: The ENS domain. It gets registered using your default account</li>
+<li><code>subdomains</code>: Object were the key is the subdomain name and the value is the address to set to it</li>
+</ul>
+<h2 id="Special-configurations"><a href="#Special-configurations" class="headerlink" title="Special configurations"></a>Special configurations</h2><h3 id="Contracts"><a href="#Contracts" class="headerlink" title="$Contracts"></a>$Contracts</h3><p>For subdomains, you can set the address as one of your contracts address using it’s name prefixed by a dollar sign (<code>$</code>).</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">subdomains: &#123;</span><br><span class="line">  &#39;contract&#39;: &#39;$MyContract&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Now, assuming your <code>rootDomain</code> is <code>embark.eth</code>, <code>contract.embark.eth</code> will resolve to the deployed address of MyContract.</p>
+<h3 id="accounts"><a href="#accounts" class="headerlink" title="$accounts"></a>$accounts</h3><p>Similarly to <code>$Contract</code>, using <code>$accounts</code> let’s you set the subdomain address to one of your accounts address.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">subdomains: &#123;</span><br><span class="line">  &#39;account&#39;: &#39;$accounts[0]&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Now, assuming your <code>rootDomain</code> is <code>embark.eth</code>, <code>account.embark.eth</code> will resolve to address of your first (index 0) account (aka <code>defaultAccount</code>).</p>
 
         </div>
         <div class="o-container-medium o-distance-l">
@@ -791,7 +809,7 @@ svg4everybody();
       </div>
       <div class="o-guided-content__addition">
         <h3 class="c-category-title">Contents</h3>
-        <ol class="o-list-bare"><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Configuration-basics" class="u-link-uniform">Configuration basics</a></li></ol>
+        <ol class="o-list-bare"><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Configuration-basics" class="u-link-uniform">Configuration basics</a><ol class="o-list-bare__child"><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#Parameters" class="u-link-uniform">Parameters</a></li></ol></li><li class="o-list-bare__item o-list-bare-level-2 o-ellipsis"><a href="#Special-configurations" class="u-link-uniform">Special configurations</a><ol class="o-list-bare__child"><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#Contracts" class="u-link-uniform">$Contracts</a></li><li class="o-list-bare__item o-list-bare-level-3 o-ellipsis"><a href="#accounts" class="u-link-uniform">$accounts</a></li></ol></li></ol>
       </div>
     </div>
   </section>
